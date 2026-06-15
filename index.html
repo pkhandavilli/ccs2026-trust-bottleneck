@@ -2149,7 +2149,7 @@ footer, header, hgroup, main, menu, nav, section {
 
     <!-- TEE boundary -->
     <rect x="20" y="20" width="840" height="210" rx="10" fill="none" stroke="rgba(52,211,153,0.35)" stroke-width="1.5" stroke-dasharray="6,3"/>
-    <text x="40" y="38" fill="#34d399" font-family="Outfit,sans-serif" font-size="10" font-weight="700" letter-spacing="1">CONFIDENTIAL ACI · TEE BOUNDARY (Intel TDX)</text>
+    <text x="40" y="38" fill="#34d399" font-family="Outfit,sans-serif" font-size="10" font-weight="700" letter-spacing="1">CONFIDENTIAL ACI · TEE BOUNDARY (AMD SEV-SNP)</text>
 
     <!-- User -->
     <rect x="40" y="55" width="110" height="50" rx="6" fill="#1a2540" stroke="#50b4ff" stroke-width="1.2"/>
@@ -2201,7 +2201,7 @@ footer, header, hgroup, main, menu, nav, section {
 
     <!-- Audit layer -->
     <rect x="40" y="140" width="796" height="50" rx="6" fill="rgba(80,180,255,0.05)" stroke="rgba(80,180,255,0.2)" stroke-width="1"/>
-    <text x="438" y="162" text-anchor="middle" fill="#50b4ff" font-family="Outfit,sans-serif" font-size="11" font-weight="700">Layer 5: TEE-Signed Tamper-Evident Audit Trail</text>
+    <text x="438" y="162" text-anchor="middle" fill="#50b4ff" font-family="Outfit,sans-serif" font-size="11" font-weight="700">Layer 6: TEE-Signed Tamper-Evident Audit Trail</text>
     <text x="438" y="178" text-anchor="middle" fill="#8b9bb4" font-family="JetBrains Mono,monospace" font-size="9">Every agent action, delegation, and tool invocation signed by hardware, cannot be repudiated</text>
 
     <!-- Bottom labels -->
@@ -2221,7 +2221,7 @@ footer, header, hgroup, main, menu, nav, section {
 
   <aside class="notes">
     <ul>
-      <li>"This is not theoretical. Azure Confidential Container Instances runs Intel TDX. Every container gets a TEE boundary."</li>
+      <li>"This is not theoretical. Azure Confidential Container Instances runs AMD SEV-SNP. Every container gets a TEE boundary."</li>
       <li>"Follow the flow: user intent, orchestrator with a SPIRE identity, payment agent with sealed credentials, MCP tool in enclaved mode, Visa attestation header, an audit trail signed by hardware."</li>
       <li>"Every hop is an RFC 8693 token exchange. Every tool call is attested MCP in enforcement mode."</li>
       <li>"The Blue41 attack is impossible here. The context path is inside the TEE boundary, so a one-cent memo can't become an agent instruction. The context channel has a hardware witness."</li>
@@ -2396,7 +2396,7 @@ footer, header, hgroup, main, menu, nav, section {
   </p>
 
   <p style="font-size:0.65em;color:var(--muted);margin-top:20px;font-family:'JetBrains Mono',monospace;">
-    @pkhandavilli · github.com/pkhandavilli/agent-governance-toolkit · azure.microsoft.com/confidential-computing
+    linkedin.com/in/khpawan · x.com/khpawan · azure.microsoft.com/confidential-computing
   </p>
 
   <aside class="notes">
