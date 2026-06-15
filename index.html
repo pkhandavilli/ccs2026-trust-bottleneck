@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Trust Is the Next Bottleneck · CCS 2026 | Pawan Khandavilli</title>
-<meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="robots" content="noindex, nofollow, noarchive">
 <style>/* Google Fonts inlined (latin, latin-ext) */
 /* latin-ext */
 @font-face {
@@ -1057,6 +1057,16 @@ footer, header, hgroup, main, menu, nav, section {
     margin-top: 6px;
   }
 
+  .arch-caption {
+    width: 100%;
+    margin-top: 14px;
+    text-align: center;
+    font-size: 0.82em;
+    font-weight: 600;
+    color: var(--text-dim);
+    letter-spacing: 0.01em;
+  }
+
   .arch-layer {
     display: flex;
     align-items: center;
@@ -2104,6 +2114,10 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
+  <div class="arch-caption fragment fade-up">
+    Confidential GPUs protect the <span class="green">model</span>. Layers 3-6 protect the <span class="amber">agent</span>.
+  </div>
+
   <aside class="notes">
     <ul>
       <li>Read the stack bottom-up.</li>
@@ -2112,6 +2126,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"Layer four is attested tool invocation: attestable-mcp-server, deny-by-default, a paper with working code."</li>
       <li>"Layer five is the one everyone forgets: policy enforcement. Authorization. RBAC for agents. The Microsoft Agent Governance Toolkit is one example, and the missing piece is anchoring it in hardware."</li>
       <li>"Layer six is the audit trail, tamper-evident only when its root is in the TEE."</li>
+      <li>"And notice: confidential GPUs are layer two. They protect the model. The agent, who it is, what it may do, what it did, lives in layers three through six."</li>
       <li>"This is not a research stack. The bottom has been in production for years. The gap is layers three through six, and it's closing now."</li>
     </ul>
   </aside>
