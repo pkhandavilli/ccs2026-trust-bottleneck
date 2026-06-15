@@ -358,6 +358,11 @@ footer, header, hgroup, main, menu, nav, section {
     box-sizing: border-box;
   }
 
+  /* Reveal sets an inline display:block on the active slide, which silently
+     defeats the flex centering above and top-anchors every slide. Force the
+     present slide back to flex so justify-content:center centers it vertically. */
+  .reveal .slides section.present { display: flex !important; }
+
   .reveal .slides section.center-content {
     align-items: center;
     text-align: center;
