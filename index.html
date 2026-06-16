@@ -2123,6 +2123,10 @@ footer, header, hgroup, main, menu, nav, section {
     Confidential GPUs protect the <span class="green">model</span>. Layers 3-6 protect the <span class="amber">agent</span>.
   </div>
 
+  <div class="fragment fade-up" style="width:100%;text-align:center;font-size:0.6em;color:var(--muted);margin-top:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;">
+    Next slide: every layer applied to a live payment flow →
+  </div>
+
   <aside class="notes">
     <ul>
       <li>Read the stack bottom-up.</li>
@@ -2133,6 +2137,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"Layer six is the audit trail, tamper-evident only when its root is in the TEE."</li>
       <li>"And notice: confidential GPUs are layer two. They protect the model. The agent, who it is, what it may do, what it did, lives in layers three through six."</li>
       <li>"This is not a research stack. The bottom has been in production for years. The gap is layers three through six, and it's closing now."</li>
+      <li>"Next slide, watch all six layers applied to one live payment flow."</li>
     </ul>
   </aside>
 </section>
@@ -2149,7 +2154,7 @@ footer, header, hgroup, main, menu, nav, section {
 
     <!-- TEE boundary -->
     <rect x="20" y="20" width="840" height="210" rx="10" fill="none" stroke="rgba(52,211,153,0.35)" stroke-width="1.5" stroke-dasharray="6,3"/>
-    <text x="40" y="38" fill="#34d399" font-family="Outfit,sans-serif" font-size="10" font-weight="700" letter-spacing="1">CONFIDENTIAL ACI · TEE BOUNDARY (AMD SEV-SNP)</text>
+    <text x="40" y="38" fill="#34d399" font-family="Outfit,sans-serif" font-size="10" font-weight="700" letter-spacing="1">CONFIDENTIAL ACI · TEE BOUNDARY (AMD SEV-SNP) · LAYERS 1-2</text>
 
     <!-- User -->
     <rect x="40" y="55" width="110" height="50" rx="6" fill="#1a2540" stroke="#50b4ff" stroke-width="1.2"/>
@@ -2165,6 +2170,8 @@ footer, header, hgroup, main, menu, nav, section {
     <text x="257" y="70" text-anchor="middle" fill="#e2e8f0" font-family="Outfit,sans-serif" font-size="11" font-weight="700">Orchestrator</text>
     <text x="257" y="86" text-anchor="middle" fill="#50b4ff" font-family="JetBrains Mono,monospace" font-size="8">SPIRE SVID</text>
     <text x="257" y="101" text-anchor="middle" fill="#8b9bb4" font-family="Outfit,sans-serif" font-size="8">TEE-attested</text>
+    <rect x="196" y="46" width="20" height="11" rx="2" fill="rgba(80,180,255,0.18)" stroke="#50b4ff" stroke-width="0.8"/>
+    <text x="206" y="55" text-anchor="middle" fill="#50b4ff" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">L3</text>
 
     <!-- Arrow 2 -->
     <line x1="322" y1="80" x2="357" y2="80" stroke="#50b4ff" stroke-width="1.2"/>
@@ -2176,6 +2183,8 @@ footer, header, hgroup, main, menu, nav, section {
     <text x="434" y="68" text-anchor="middle" fill="#e2e8f0" font-family="Outfit,sans-serif" font-size="11" font-weight="700">Payment Agent</text>
     <text x="434" y="84" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono,monospace" font-size="8">Attested identity</text>
     <text x="434" y="99" text-anchor="middle" fill="#8b9bb4" font-family="Outfit,sans-serif" font-size="8">Sealed credentials</text>
+    <rect x="368" y="46" width="20" height="11" rx="2" fill="rgba(167,139,250,0.18)" stroke="#a78bfa" stroke-width="0.8"/>
+    <text x="378" y="55" text-anchor="middle" fill="#a78bfa" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700">L3</text>
 
     <!-- Arrow 3 -->
     <line x1="504" y1="80" x2="539" y2="80" stroke="#a78bfa" stroke-width="1.2"/>
@@ -2187,6 +2196,8 @@ footer, header, hgroup, main, menu, nav, section {
     <text x="616" y="68" text-anchor="middle" fill="#e2e8f0" font-family="Outfit,sans-serif" font-size="11" font-weight="700">MCP Tool Server</text>
     <text x="616" y="84" text-anchor="middle" fill="#fbbf24" font-family="JetBrains Mono,monospace" font-size="8">--enclaved mode</text>
     <text x="616" y="99" text-anchor="middle" fill="#8b9bb4" font-family="Outfit,sans-serif" font-size="8">Attestation required</text>
+    <rect x="550" y="46" width="34" height="11" rx="2" fill="rgba(251,191,36,0.18)" stroke="#fbbf24" stroke-width="0.8"/>
+    <text x="567" y="55" text-anchor="middle" fill="#fbbf24" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="700">L4·L5</text>
 
     <!-- Arrow 4 -->
     <line x1="686" y1="80" x2="718" y2="80" stroke="#fbbf24" stroke-width="1.2"/>
@@ -2223,6 +2234,7 @@ footer, header, hgroup, main, menu, nav, section {
     <ul>
       <li>"This is not theoretical. Azure Confidential Container Instances runs AMD SEV-SNP. Every container gets a TEE boundary."</li>
       <li>"Follow the flow: user intent, orchestrator with a SPIRE identity, payment agent with sealed credentials, MCP tool in enclaved mode, Visa attestation header, an audit trail signed by hardware."</li>
+      <li>"Each box is tagged with the layer it implements: identity on the two agents, attested invocation and policy at the tool server, audit across the bottom, all inside the layer one-two enclave."</li>
       <li>"Every hop is an RFC 8693 token exchange. Every tool call is attested MCP in enforcement mode."</li>
       <li>"The Blue41 attack is impossible here. The context path is inside the TEE boundary, so a one-cent memo can't become an agent instruction. The context channel has a hardware witness."</li>
       <li>"This is about three months of engineering. It's the integration nobody has shipped at scale yet."</li>
