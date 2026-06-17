@@ -2270,25 +2270,24 @@ footer, header, hgroup, main, menu, nav, section {
     <div class="hw-box hw-good fragment fade-up">
       <h4>✅ Why hardware trust is still better</h4>
       <ul>
-        <li>When hardware breaks → <strong>you can detect and patch it</strong> because the trust model is explicit.</li>
-        <li>When OAuth breaks → you don't know until 770,000 agents are compromised.</li>
-        <li>Hardware failure mode: a patch. Software failure mode: a breach.</li>
-        <li>Side-channel patches exist. Prompt injection patches require re-architecting.</li>
+        <li>When a TEE breaks, the trust model is <strong>explicit</strong>: a measurement, a CVE, a patch, and you re-attest. Painful, but bounded.</li>
+        <li>When OAuth breaks, the trust model is <strong>implicit</strong>: nothing verified the code behind the token, so the first signal <em>is</em> the breach.</li>
+        <li>Side-channel attacks get mitigated. Prompt injection has no patch, because the trust model itself is the bug.</li>
       </ul>
     </div>
   </div>
 
   <div class="fabricked-callout fragment fade-up">
-    💡 "Fabricked proved: when hardware attestation breaks, we can <em>detect and patch it</em> because the trust model is explicit. The failure mode of hardware trust is a patch. The failure mode of software trust is a breach you might not notice until it's too late."
+    💡 "The asymmetry isn't that hardware never breaks. It's that hardware trust is <em>explicit</em>: when it breaks, there's a measurement, a CVE, and a patch. Software trust is <em>implicit</em>: when it breaks, the first signal is the breach."
   </div>
 
   <aside class="notes">
     <ul>
       <li>"Someone here is thinking: hardware attestation isn't magic, what about Fabricked? You're right to push back."</li>
       <li>"Hardware is not infallible. SEV-SNP forgery, SGX side-channels, vendor-specific formats, measurable overhead on crypto-heavy work."</li>
-      <li>"But Fabricked proved the point: we detected it and patched it, because the trust model is explicit."</li>
-      <li>"When 770,000 agents fell, nobody knew until they were gone. The detection was the breach."</li>
-      <li>"Hardware's failure mode is a patch. Software's failure mode is a breach. So it's composition: TEEs as the foundation, OAuth and IAM and guardrails on top."</li>
+      <li>"But here's the asymmetry: when hardware trust breaks, the model is explicit. A measurement, a CVE, a patch, and you re-attest. Bounded."</li>
+      <li>"When implicit trust breaks, detection comes downstream. By the time you see it, the agents are already gone. The detection is the breach."</li>
+      <li>"Side-channels get mitigated. Prompt injection has no patch, because the trust model itself is the bug. So it's composition: TEEs as the foundation, OAuth and IAM and guardrails on top."</li>
     </ul>
   </aside>
 </section>
