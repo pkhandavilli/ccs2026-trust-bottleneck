@@ -1197,7 +1197,7 @@ footer, header, hgroup, main, menu, nav, section {
     flex-shrink: 0;
   }
 
-  .fabricked-callout {
+  .asymmetry-callout {
     background: rgba(167, 139, 250, 0.08);
     border: 1px solid rgba(167, 139, 250, 0.25);
     border-radius: 10px;
@@ -1503,7 +1503,7 @@ footer, header, hgroup, main, menu, nav, section {
      SLIDE 2 · MONTAGE STATS
 ============================================ -->
 <section class="montage-slide center-content">
-  <div class="montage-header">Five months. Five numbers. One architecture failure.</div>
+  <div class="montage-header">Since the start of this year. Five numbers. One architecture failure.</div>
 
   <div class="stats-grid">
     <div class="stat-item" id="stat1" data-delay="0">
@@ -1544,7 +1544,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"195 million citizen records. One attacker, Claude Code and GPT-4.1, nine agencies, ninety days."</li>
       <li>"150 million downloads across a poisoned MCP supply chain. Ten CVEs."</li>
       <li>"One character in an HTTP Host header. Clinical databases, email inboxes, SSH into industrial devices."</li>
-      <li>"One cent. A single bank-transfer memo hijacked a financial AI agent. This one happened nine days ago."</li>
+      <li>"One cent. A single bank-transfer memo hijacked a financial AI agent. This one happened thirteen days ago."</li>
       <li>"Not one of these agents could prove who it was, what code it ran, or whether it had been tampered with."</li>
       <li>"That's not a security problem. That's an architecture problem."</li>
     </ul>
@@ -1597,7 +1597,7 @@ footer, header, hgroup, main, menu, nav, section {
     "Visa is putting verifiable agent identity into its payment network. It can prove <em>who</em> an agent claims to be, but not <em>what code</em> is running. Payments is reaching for a hardware root of trust, and <strong>this room already built it.</strong>"
   </blockquote>
 
-  <p class="fragment fade-up context-stat">June 10: Visa connected its payment network to ChatGPT. Reddit's top reaction (4,503 upvotes): "First person to trick the chatbot is about to make bank."</p>
+  <p class="fragment fade-up context-stat">June 11: Visa connected its payment network to ChatGPT. Reddit's top reaction (4,503 upvotes): "First person to trick the chatbot is about to make bank."</p>
 
   <aside class="notes">
     <ul>
@@ -1606,7 +1606,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"2018, cloud. The whole model was trust our hyperscaler. The fix was the TEE: SGX, TDX, SEV-SNP. Prove it, don't promise it. 75% enterprise adoption."</li>
       <li>"Now it's agents. OAuth tokens standing in for ten thousand decisions a minute."</li>
       <li>Read the Visa pull-quote on screen.</li>
-      <li>"June 10, Visa connected its network to ChatGPT. Top Reddit reaction: first person to trick the chatbot is about to make bank. That's not a joke, it's a systems-design warning."</li>
+      <li>"June 11, Visa connected its network to ChatGPT. Top Reddit reaction: first person to trick the chatbot is about to make bank. That's not a joke, it's a systems-design warning."</li>
     </ul>
   </aside>
 </section>
@@ -1622,8 +1622,8 @@ footer, header, hgroup, main, menu, nav, section {
     <div class="logo-card fragment fade-up">
       <div class="company">🔵 Visa</div>
       <div class="protocol">Trusted Agent Protocol</div>
-      <div class="desc">Attestation headers at the transport layer. Verifiable identity per-request, not per-session.</div>
-      <span class="highlight">attestation headers</span>
+      <div class="desc">Signed agent-identity headers at the transport layer. Verifiable identity per request, not per session.</div>
+      <span class="highlight">verifiable identity</span>
     </div>
     <div class="logo-card fragment fade-up">
       <div class="company">🟠 Mastercard</div>
@@ -1640,22 +1640,22 @@ footer, header, hgroup, main, menu, nav, section {
     <div class="logo-card fragment fade-up">
       <div class="company">🔐 FIDO Alliance</div>
       <div class="protocol">Agentic Authentication TWG</div>
-      <div class="desc">Formed April 28, 2026. Three workstreams: Verifiable User Instructions, Agent Auth, Trusted Delegation for Commerce.</div>
+      <div class="desc">Chartered April 27–28, 2026. Three workstreams: Verifiable User Instructions, Agent Auth, Trusted Delegation for Commerce.</div>
       <span class="highlight">standards forming now</span>
     </div>
   </div>
 
   <div class="gap-callout fragment fade-up">
-    ⚠️ Every protocol names "attestation" or "verifiable", but none specify a <strong>hardware root of trust</strong>. That's the missing layer. That's us.
+    ⚠️ Every protocol demands verifiable agent identity, but none specify a <strong>hardware root of trust</strong>. That's the missing layer. That's us.
   </div>
 
   <aside class="notes">
     <ul>
-      <li>"Four companies. Four protocols. The same words in every one: attestation, verifiable, tokenized."</li>
+      <li>"Four companies. Four protocols. The same demand in every one: verifiable agent identity."</li>
       <li>"Visa, Trusted Agent Protocol. Mastercard, Agent Pay. Google, AP2, contributed to FIDO. FIDO stood up its Agentic Authentication working group eight weeks ago."</li>
       <li>"They know what they need. They don't yet have the how at the hardware layer."</li>
       <li>"Mastercard says tokenized identity. That's EMV for agents. EMV needed a secure element. Agent Pay will need a TEE."</li>
-      <li>"Every protocol names attestation or verifiable. None specify a hardware root of trust. That's the missing layer. That's us."</li>
+      <li>"Every protocol demands verifiable identity. None specify a hardware root of trust. That's the missing layer. That's us."</li>
     </ul>
   </aside>
 </section>
@@ -1746,7 +1746,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"User expresses intent. The agent picks it up, calls a tool over MCP, the tool calls the payment rail, money moves."</li>
       <li>"Every hop authenticates the token. Nobody authenticates the code."</li>
       <li>"The one-cent attack: a normal transfer memo became an agent instruction, because the agent reads transaction history as context and nothing attests that context is trustworthy."</li>
-      <li>"That's Blue41 and Bunq, nine days ago. A researcher spent one euro and hijacked a banking assistant."</li>
+      <li>"That's Blue41 and Bunq, thirteen days ago. A researcher spent one cent and hijacked a banking assistant."</li>
       <li>"Let me show you how bad the broader picture is."</li>
     </ul>
   </aside>
@@ -1760,13 +1760,13 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>The <span class="accent">NSA got MCP right</span>, and missed the deeper problem</h2>
 
   <div class="blockquote-fancy fragment fade-up">
-    "Three weeks before this talk, the NSA's AI Security Center published their first official MCP threat model. 17 pages. The most careful security treatment of MCP to date. And they framed it as an <strong>API security problem</strong>."
-    <cite>NSA AI Security Center Advisory, May 20, 2026</cite>
+    "Five weeks before this talk, the NSA's AI Security Center published its first official MCP threat model. 17 pages, the most careful security treatment of MCP to date. It calls for cryptographic agent identity and verifiable logs, and stops short of a <strong>hardware root of trust</strong>."
+    <cite>NSA AI Security Center Advisory, May 2026</cite>
   </div>
 
   <div class="blockquote-fancy fragment fade-up" style="border-color: var(--amber); background: rgba(251,191,36,0.05);">
     "The NSA document misses the real problem. Securing the API endpoints doesn't help when the attacker's actual leverage is poisoning the <em>context that flows through</em> those endpoints."
-    <cite>Data Science Collective, May 20, 2026 (Medium)</cite>
+    <cite>Data Science Collective, May 2026 (Medium)</cite>
   </div>
 
   <p class="fragment fade-up" style="font-size:0.85em; color: var(--accent); font-weight:600; margin-top:12px;">
@@ -1775,12 +1775,12 @@ footer, header, hgroup, main, menu, nav, section {
 
   <aside class="notes">
     <ul>
-      <li>"Three weeks ago, the NSA's AI Security Center published its first MCP threat model. Seventeen pages, the most careful treatment to date. And they framed it as an API-security problem."</li>
-      <li>"They got the surface area right. They missed the root cause."</li>
+      <li>"Five weeks ago, the NSA's AI Security Center published its first MCP threat model. Seventeen pages, the most careful treatment to date. It calls for cryptographic identity and verifiable logs, but stops short of a hardware root of trust."</li>
+      <li>"They got the surface area right. They missed the deeper layer: hardware-rooted proof of what's actually running."</li>
       <li>"Securing the endpoints doesn't help when the attacker's leverage is poisoning the context that flows through them."</li>
       <li>"The community feels it too: MCP is dead hit the front page, 400 points, 410 comments in a day."</li>
       <li>"They framed it as a performance complaint: tool definitions alone eat 10.5% of Claude's context window. But it's not a performance problem. It's a security problem. Every byte of tool definition is a byte an attacker can poison, and a byte your safety instructions can't use. MCP puts the tool catalog inside the brain. The fix is to put it in the infrastructure, behind attestation, outside the context window entirely."</li>
-      <li>"Let me show you five incidents that prove this in production."</li>
+      <li>"Let me show you six signals that prove this in production."</li>
     </ul>
   </aside>
 </section>
@@ -1822,9 +1822,9 @@ footer, header, hgroup, main, menu, nav, section {
         <td>Architecture gap acknowledged by O'Reilly</td>
       </tr>
       <tr class="fragment fade-up">
-        <td>Mitiga Research<br><span style="color:var(--muted);font-size:0.8em">May 2026</span></td>
-        <td>Agentic attack chains exploiting Microsoft 365 Copilot via indirect prompt injection in email context.</td>
-        <td>Context as attack vector, no trust boundary</td>
+        <td>Mitiga / Claude Code<br><span style="color:var(--muted);font-size:0.8em">Jun 2026</span></td>
+        <td>Malicious npm package rewrites Claude Code's MCP config, silently proxying OAuth tokens.</td>
+        <td>Stolen agent credentials look legitimate</td>
       </tr>
       <tr class="fragment fade-up"><td>Blue41 / Bunq<br><span style="color:var(--muted);font-size:0.8em">Jun 10</span></td><td>€0.01 transfer memo hijacks banking AI agent</td><td>Legitimate context becomes attack vector</td></tr>
     </tbody>
@@ -1837,10 +1837,10 @@ footer, header, hgroup, main, menu, nav, section {
 
   <aside class="notes">
     <ul>
-      <li>"Five incidents. Read them as a pattern, not a list."</li>
+      <li>"Six signals. Read them as a pattern, not a list."</li>
       <li>"BadHost: one character in an HTTP Host header. Clinical-trial databases, email inboxes, SSH into factory-floor equipment. CVSS seven-oh, and that is understated."</li>
       <li>"Mexico: not a nation-state. One person, two AI models, ninety days, 195 million records."</li>
-      <li>"Blue41 and Bunq: nine days ago. One euro, one transfer memo, one hijacked assistant."</li>
+      <li>"Blue41 and Bunq: thirteen days ago. One cent, one transfer memo, one hijacked assistant."</li>
       <li>Read the O'Reilly pull-quote slowly.</li>
       <li>"That's O'Reilly, the publisher that named every major platform shift for thirty years, saying the delegation layer does not exist."</li>
       <li>"Here's what makes it worse: everyone knows, and everyone is building the wrong fix."</li>
@@ -1861,7 +1861,7 @@ footer, header, hgroup, main, menu, nav, section {
       <ul>
         <li><strong>OWASP Agentic Top 10</strong>: Goal Hijack, Tool Misuse, Identity Abuse. Published May 2026.</li>
         <li><strong>Microsoft Agent Governance Toolkit</strong>: open-source, maps all 10 OWASP risks. May 27, 2026.</li>
-        <li><strong>NSA AI Security Center</strong>: MCP threat model. May 20, 2026.</li>
+        <li><strong>NSA AI Security Center</strong>: MCP threat model. May 2026.</li>
         <li><strong>NIST AI RMF</strong>: Agentic AI agent standards initiative. Feb 2026.</li>
         <li><strong>WorkOS auth.md</strong>: Agent registration protocol. May 25, 2026.</li>
         <li><strong>Stanford CS336 CLAUDE.md</strong>: Agent safety guidelines adopted in curricula.</li>
@@ -2018,7 +2018,7 @@ footer, header, hgroup, main, menu, nav, section {
   <div class="three-panels">
     <div class="panel-card fragment fade-up">
       <div class="org">🚗 Uber Engineering</div>
-      <div class="date">May 22, 2026</div>
+      <div class="date">May 21, 2026</div>
       <ul>
         <li>SPIRE-issued workload identities per agent</li>
         <li>Per-hop token exchange via RFC 8693</li>
@@ -2039,7 +2039,7 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="missing">Status: Open source. Enforcement mode exists. Waiting for this room to adopt it.</div>
     </div>
     <div class="panel-card fragment fade-up">
-      <div class="org">🔑 1Password + Keycard</div>
+      <div class="org">🔑 1Password · Keycard</div>
       <div class="date">May 21, 2026</div>
       <ul>
         <li>Runtime credential delegation via attestation</li>
@@ -2047,7 +2047,7 @@ footer, header, hgroup, main, menu, nav, section {
         <li>Verifiable agent identity at runtime via attestation</li>
         <li>Session-scoped, RFC 8693 per-hop exchange</li>
       </ul>
-      <div class="missing">Signal: A credential manager chose attestation as trust anchor for agent delegation. Not OAuth. Not API keys. Attestation.</div>
+      <div class="missing">Signal: Two separate vendors, same week, same trust anchor. 1Password for agent credential management, Keycard for runtime attestation. Not OAuth. Not API keys.</div>
     </div>
   </div>
 
@@ -2060,7 +2060,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>This is the structural climax: three teams, three countries, same week, same answer.</li>
       <li>"Uber: production agent identity at massive scale, per-hop RFC 8693 token exchange, a roadmap that says verifiable provenance. What's missing is the TEE."</li>
       <li>"attestable-mcp-server: a May arXiv paper with working code. Enclaved mode, deny without attestation. It's open source and ready. Why isn't it in the MCP spec?"</li>
-      <li>"1Password and Keycard: a company whose whole business is secrets chose attestation as its agent trust anchor. Not OAuth, not API keys. Attestation. That's a market signal."</li>
+      <li>"1Password and Keycard, two separate vendors the same week: 1Password, whose whole business is secrets, shipped agent credential management; Keycard shipped runtime attestation with no long-lived keys. Both anchored on attestation, not OAuth, not API keys. That's a market signal."</li>
       <li>Pause. "Three teams, working independently, converged on the same answer."</li>
       <li>"What none of them has yet is the end-to-end integration. That's the work this room does in 2026."</li>
     </ul>
@@ -2103,7 +2103,7 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="arch-layer-num">3</div>
       <div class="arch-layer-content">
         <div class="arch-layer-title">Agent Identity Issuance</div>
-        <div class="arch-layer-detail">SPIRE + TEE | 1Password/Keycard attestation | RFC 8693 per-hop token exchange</div>
+        <div class="arch-layer-detail">SPIRE + TEE | Keycard runtime attestation | RFC 8693 per-hop token exchange</div>
       </div>
       <div class="arch-layer-status amber">🔨 Partial</div>
     </div>
@@ -2215,7 +2215,7 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- Payment Rail -->
     <rect x="726" y="45" width="110" height="70" rx="6" fill="#1a2540" stroke="#34d399" stroke-width="1.5"/>
     <text x="781" y="68" text-anchor="middle" fill="#e2e8f0" font-family="Outfit,sans-serif" font-size="11" font-weight="700">Visa/Mastercard</text>
-    <text x="781" y="84" text-anchor="middle" fill="#34d399" font-family="JetBrains Mono,monospace" font-size="8">Attestation header</text>
+    <text x="781" y="84" text-anchor="middle" fill="#34d399" font-family="JetBrains Mono,monospace" font-size="8">Signed identity header</text>
     <text x="781" y="99" text-anchor="middle" fill="#8b9bb4" font-family="Outfit,sans-serif" font-size="8">Verified agent ID</text>
 
     <!-- Audit layer -->
@@ -2241,7 +2241,7 @@ footer, header, hgroup, main, menu, nav, section {
   <aside class="notes">
     <ul>
       <li>"This is not theoretical. Azure Confidential Container Instances runs AMD SEV-SNP. Every container gets a TEE boundary."</li>
-      <li>"Follow the flow: user intent, orchestrator with a SPIRE identity, payment agent with sealed credentials, MCP tool in enclaved mode, Visa attestation header, an audit trail signed by hardware."</li>
+      <li>"Follow the flow: user intent, orchestrator with a SPIRE identity, payment agent with sealed credentials, MCP tool in enclaved mode, Visa signed identity header, an audit trail signed by hardware."</li>
       <li>"Each box is tagged with the layer it implements: identity on the two agents, attested invocation and policy at the tool server, audit across the bottom, all inside the layer one-two enclave."</li>
       <li>"Every hop is an RFC 8693 token exchange. Every tool call is attested MCP in enforcement mode."</li>
       <li>"The Blue41 attack is impossible here. The context path is inside the TEE boundary, so a one-cent memo can't become an agent instruction. The context channel has a hardware witness."</li>
@@ -2261,7 +2261,7 @@ footer, header, hgroup, main, menu, nav, section {
     <div class="hw-box hw-bad fragment fade-up">
       <h4>⚠️ When hardware attestation fails</h4>
       <ul>
-        <li>AMD SEV-SNP "Fabricked", attestation forgery. Patch: BIOS update, measurement rotation.</li>
+        <li>AMD SEV-SNP "CacheWarp" (CVE-2023-20592): cache attack hijacks a confidential VM. Patch: microcode update, re-attestation.</li>
         <li>Side-channel attacks on SGX, Spectre, Foreshadow. Patch: microcode, enclave hardening.</li>
         <li>Vendor dependencies, different attestation formats per cloud.</li>
         <li>Performance overhead, measurable on crypto-heavy workloads.</li>
@@ -2277,14 +2277,14 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <div class="fabricked-callout fragment fade-up">
+  <div class="asymmetry-callout fragment fade-up">
     💡 "The asymmetry isn't that hardware never breaks. It's that hardware trust is <em>explicit</em>: when it breaks, there's a measurement, a CVE, and a patch. Software trust is <em>implicit</em>: when it breaks, the first signal is the breach."
   </div>
 
   <aside class="notes">
     <ul>
-      <li>"Someone here is thinking: hardware attestation isn't magic, what about Fabricked? You're right to push back."</li>
-      <li>"Hardware is not infallible. SEV-SNP forgery, SGX side-channels, vendor-specific formats, measurable overhead on crypto-heavy work."</li>
+      <li>"Someone here is thinking: hardware attestation isn't magic, what about CacheWarp? You're right to push back."</li>
+      <li>"Hardware is not infallible. SEV-SNP cache attacks, SGX side-channels, vendor-specific formats, measurable overhead on crypto-heavy work."</li>
       <li>"But here's the asymmetry: when hardware trust breaks, the model is explicit. A measurement, a CVE, a patch, and you re-attest. Bounded."</li>
       <li>"When implicit trust breaks, detection comes downstream. By the time you see it, the agents are already gone. The detection is the breach."</li>
       <li>"Side-channels get mitigated. Prompt injection has no patch, because the trust model itself is the bug. So it's composition: TEEs as the foundation, OAuth and IAM and guardrails on top."</li>
