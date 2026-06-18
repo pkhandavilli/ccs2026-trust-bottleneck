@@ -2474,7 +2474,7 @@ footer, header, hgroup, main, menu, nav, section {
 <!-- A2 · Competitive landscape -->
 <section>
   <div class="slide-label">Appendix · For Q&amp;A</div>
-  <h2>How this differs from <span class="accent">Nitro and Confidential Space</span></h2>
+  <h2>The gap every <span class="accent">confidential platform shares</span></h2>
   <div class="logos-grid">
     <div class="logo-card">
       <div class="company">&#129003; AWS Nitro Enclaves</div>
@@ -2488,14 +2488,14 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
     <div class="logo-card">
       <div class="company">&#129001; Azure C-ACI + 6-layer stack</div>
-      <div class="desc">SEV-SNP confidential containers, MAA attestation, customer-verifiable measurements, agent identity bound to the TEE.</div>
-      <span class="highlight">agent identity, provider-neutral</span>
+      <div class="desc">SEV-SNP confidential containers, MAA attestation, customer-verifiable measurements.</div>
+      <span class="highlight">verifiable measurements, Azure-scoped</span>
     </div>
   </div>
   <div class="gap-callout">
-    Each solves isolation and attestation <strong>inside its own cloud</strong>. None standardize binding attestation to <strong>agent identity</strong> across providers. That handshake is the open problem.
+    Each solves isolation and attestation <strong>inside its own cloud</strong>, and each does it well. None of them, Azure included, binds attestation to a portable <strong>agent identity</strong> across providers. That handshake is the open problem.
   </div>
-  <aside class="notes"><ul><li>Backup. Stay humble: each is solid within its cloud. The gap is a provider-neutral agent-identity handshake, not "they're behind."</li></ul></aside>
+  <aside class="notes"><ul><li>Backup. Shared industry gap, not Azure ahead. Each is solid in its own cloud. The provider-neutral agent-identity handshake is unsolved everywhere, Azure included; my AGT PR is one proposal in public review, not a shipped answer.</li></ul></aside>
 </section>
 
 <!-- A3 · Why not OAuth scopes -->
