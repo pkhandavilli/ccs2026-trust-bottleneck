@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trust Is the Next Bottleneck · CCS 2026 | Pawan Khandavilli</title><meta name="robots" content="noindex, nofollow, noarchive">
+<title>Trust Is the Next Bottleneck · CCS 2026 | Pawan Khandavilli</title>
+<meta name="robots" content="noindex, nofollow">
 <style>/* Google Fonts inlined (latin, latin-ext) */
 /* latin-ext */
 @font-face {
@@ -1608,6 +1609,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>Read the Visa pull-quote on screen.</li>
       <li>"June 11, Visa connected its network to ChatGPT. Top Reddit reaction: first person to trick the chatbot is about to make bank. That's not a joke, it's a systems-design warning."</li>
       <li>"And notice what the joke gets right. Identity proves who's asking. It doesn't stop an agent that's been tricked into asking. If the model is the thing that approves the payment, then whoever can trick the model can move the money. The authorization has to be deterministic, enforced in hardware the model can't override. Hold that thought, it's the gap I come back to."</li>
+      <li><strong>[If time]</strong> "The EMV proof point: after the US chip rollout, Visa reported counterfeit fraud at chip-enabled merchants fell roughly 76 percent. That is what moving trust into hardware does to a fraud curve. The same curve is coming for agents."</li>
     </ul>
   </aside>
 </section>
@@ -2147,6 +2149,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"Here's the test. Today, the industry answers one question: can anyone see my data? But nobody answers the three that matter for agents. Who is this agent? Was this tool call legitimate? Was this agent authorized to do that? Layers three, four, five. That's the work."</li>
       <li>"This is not a research stack. The bottom has been in production for years. The gap is layers three through six, and it's closing now."</li>
       <li>"Next slide, watch all six layers applied to one live payment flow."</li>
+      <li><strong>[If time]</strong> "Layer by layer, concretely: strip layer three and you can't tell two agents apart; strip layer four and any tool call is trusted; strip layer five and a tricked agent does whatever it's talked into; strip layer six and you can't prove what happened after a breach. Each layer closes one of those."</li>
     </ul>
   </aside>
 </section>
@@ -2247,6 +2250,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"Every hop is an RFC 8693 token exchange. Every tool call is attested MCP in enforcement mode."</li>
       <li>"The Blue41 attack is impossible here. The context path is inside the TEE boundary, so a one-cent memo can't become an agent instruction. The context channel has a hardware witness."</li>
       <li>"This is about three months of engineering. It's the integration nobody has shipped at scale yet."</li>
+      <li><strong>[If time]</strong> "Walk every box out loud: intent enters, the orchestrator carries a SPIRE SVID minted inside the enclave, it exchanges an RFC 8693 token to the payment agent whose credentials are sealed to the TEE, the agent calls the MCP server in enclaved mode where policy is enforced, Visa gets a signed identity header, and the hardware signs the audit line. Six boxes, six layers, one flow."</li>
     </ul>
   </aside>
 </section>
@@ -2435,6 +2439,113 @@ footer, header, hgroup, main, menu, nav, section {
   </aside>
 </section>
 
+
+<!-- ============================================
+     APPENDIX · BACKUP SLIDES FOR Q&A (not shown in main flow)
+============================================ -->
+
+<!-- A1 · Threat model -->
+<section>
+  <div class="slide-label">Appendix · For Q&amp;A</div>
+  <h2>What attestation <span class="accent">does and doesn't</span> stop</h2>
+  <div class="logos-grid">
+    <div class="logo-card">
+      <div class="company">&#9989; Attestation proves</div>
+      <div class="desc">Who the agent is, that the code is unmodified, and that it runs in a genuine TEE on a hardware root of trust.</div>
+      <span class="highlight">identity + integrity</span>
+    </div>
+    <div class="logo-card">
+      <div class="company">&#9888;&#65039; It does not stop</div>
+      <div class="desc">A legitimate, attested agent that gets prompt-injected or socially engineered into asking for the wrong thing.</div>
+      <span class="highlight">the trick still works</span>
+    </div>
+    <div class="logo-card">
+      <div class="company">&#128274; The closing layer</div>
+      <div class="desc">Deterministic policy enforced in the TEE and bound to attested identity. A tricked agent still can't exceed its scope.</div>
+      <span class="highlight">layer 5: policy</span>
+    </div>
+  </div>
+  <div class="gap-callout">
+    Attestation answers <strong>who and what</strong>. Deterministic policy answers <strong>what it's allowed to do</strong>. You need both: identity alone doesn't survive a prompt injection.
+  </div>
+  <aside class="notes"><ul><li>Backup. Use for "doesn't attestation just move the problem?" or any prompt-injection question. This is the slide-3 callback.</li></ul></aside>
+</section>
+
+<!-- A2 · Competitive landscape -->
+<section>
+  <div class="slide-label">Appendix · For Q&amp;A</div>
+  <h2>How this differs from <span class="accent">Nitro and Confidential Space</span></h2>
+  <div class="logos-grid">
+    <div class="logo-card">
+      <div class="company">&#129003; AWS Nitro Enclaves</div>
+      <div class="desc">Isolated enclave, no persistent storage or interactive access, KMS attestation to release keys.</div>
+      <span class="highlight">isolation, AWS-scoped</span>
+    </div>
+    <div class="logo-card">
+      <div class="company">&#128309; GCP Confidential Space</div>
+      <div class="desc">Confidential VM plus workload identity; attestation tokens gate secret release.</div>
+      <span class="highlight">workload identity, GCP-scoped</span>
+    </div>
+    <div class="logo-card">
+      <div class="company">&#129001; Azure C-ACI + 6-layer stack</div>
+      <div class="desc">SEV-SNP confidential containers, MAA attestation, customer-verifiable measurements, agent identity bound to the TEE.</div>
+      <span class="highlight">agent identity, provider-neutral</span>
+    </div>
+  </div>
+  <div class="gap-callout">
+    Each solves isolation and attestation <strong>inside its own cloud</strong>. None standardize binding attestation to <strong>agent identity</strong> across providers. That handshake is the open problem.
+  </div>
+  <aside class="notes"><ul><li>Backup. Stay humble: each is solid within its cloud. The gap is a provider-neutral agent-identity handshake, not "they're behind."</li></ul></aside>
+</section>
+
+<!-- A3 · Why not OAuth scopes -->
+<section>
+  <div class="slide-label">Appendix · For Q&amp;A</div>
+  <h2>Why not just <span class="accent">OAuth scopes</span>?</h2>
+  <div class="logos-grid">
+    <div class="logo-card">
+      <div class="company">&#127915; OAuth bearer token</div>
+      <div class="desc">Whoever holds it is the agent. Not bound to code or hardware. Coarse, static scopes. A stolen token is full impersonation.</div>
+      <span class="highlight">the Uber + Claude Code failure mode</span>
+    </div>
+    <div class="logo-card">
+      <div class="company">&#128271; Attested agent identity</div>
+      <div class="desc">Bound to the TEE measurement and hardware root. Proves unmodified code. Short-lived, per request. A copied token can't move the hardware root.</div>
+      <span class="highlight">theft doesn't transfer trust</span>
+    </div>
+  </div>
+  <div class="gap-callout">
+    OAuth answers <strong>"is this token valid?"</strong> Attestation answers <strong>"is this the right agent, running the right code, right now?"</strong> Scopes are necessary, not sufficient.
+  </div>
+  <aside class="notes"><ul><li>Backup. Use for the "isn't this already solved by IAM / OAuth?" question.</li></ul></aside>
+</section>
+
+<!-- A4 · The attestation handshake PR -->
+<section>
+  <div class="slide-label">Appendix · For Q&amp;A</div>
+  <h2>Building in public: the <span class="accent">attestation handshake</span></h2>
+  <div class="build-cards">
+    <div class="build-card">
+      <div class="card-num">1</div>
+      <h4>Agent presents evidence</h4>
+      <p>On startup the agent sends its TEE attestation (SEV-SNP or TDX measurement) to the governance layer, not just a bearer token.</p>
+    </div>
+    <div class="build-card">
+      <div class="card-num">2</div>
+      <h4>Governance verifies, then issues identity</h4>
+      <p>The measurement is checked against policy before any agent identity or credential is granted. Provider-neutral: the verifier doesn't care which cloud.</p>
+    </div>
+    <div class="build-card">
+      <div class="card-num">3</div>
+      <h4>Credentials sealed to the TEE</h4>
+      <p>Secrets release only to the attested boundary, so a copied credential is useless outside it.</p>
+    </div>
+  </div>
+  <div class="sweden-box">
+    This is a proposal in <strong>public review</strong>, not a shipped feature: I opened a provider-neutral attestation PR against the open-source Agent Governance Toolkit. The attestation layer should be a shared primitive. <strong style="color:#86efac">github.com/pkhandavilli/agent-governance-toolkit/pull/1</strong>
+  </div>
+  <aside class="notes"><ul><li>Backup. Honest framing: my proposal, in review. Do not claim AGT itself is adding confidential computing.</li></ul></aside>
+</section>
 </div><!-- /slides -->
 </div><!-- /reveal -->
 
