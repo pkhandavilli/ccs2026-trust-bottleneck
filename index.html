@@ -2498,6 +2498,52 @@ footer, header, hgroup, main, menu, nav, section {
   <aside class="notes"><ul><li>Backup. Shared industry gap, not Azure ahead. Each is solid in its own cloud. The provider-neutral agent-identity handshake is unsolved everywhere, Azure included; my AGT PR is one proposal in public review, not a shipped answer.</li></ul></aside>
 </section>
 
+<!-- A2b · Standards CC can extend -->
+<section>
+  <div class="slide-label">Appendix · For Q&amp;A</div>
+  <h2>We don't need new standards. <span class="accent">We need to extend them.</span></h2>
+  <table class="evidence-table">
+    <thead>
+      <tr>
+        <th>Standard (exists today)</th>
+        <th>What it gives</th>
+        <th>The CC extension</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>IETF RATS<br><span style="color:var(--muted);font-size:0.8em">RFC 9334 &middot; EAT</span></td>
+        <td>Attestation evidence and a claims format</td>
+        <td>Carry TEE measurements as verifiable claims</td>
+      </tr>
+      <tr>
+        <td>SPIFFE / SPIRE<br><span style="color:var(--muted);font-size:0.8em">CNCF &middot; SVID</span></td>
+        <td>Portable workload identity</td>
+        <td>Gate SVID issuance on attestation; embed the measurement</td>
+      </tr>
+      <tr>
+        <td>OAuth 2.0<br><span style="color:var(--muted);font-size:0.8em">RFC 8693 &middot; DPoP 9449</span></td>
+        <td>Delegated, proof-of-possession tokens</td>
+        <td>Bind the token to an attested TEE key, not a bearer secret</td>
+      </tr>
+      <tr>
+        <td>IETF WIMSE<br><span style="color:var(--muted);font-size:0.8em">working group</span></td>
+        <td>Workload identity across systems</td>
+        <td>The provider-neutral agent-identity root</td>
+      </tr>
+      <tr>
+        <td>MCP<br><span style="color:var(--muted);font-size:0.8em">attestable-mcp-server</span></td>
+        <td>Agent and tool protocol</td>
+        <td>Attest server and tool identity before granting trust</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="gap-callout">
+    The framework layer (OWASP Agentic, NIST, CSA, CCC) should name hardware attestation as a <strong>requirement</strong>, not a nice-to-have. The point: <strong>extend what exists, don't reinvent it.</strong>
+  </div>
+  <aside class="notes"><ul><li>Backup for "isn't this reinventing the wheel?" No. Every row is a standard people already run. CC adds one move: bind the identity or token to a hardware-attested measurement. RATS already defines the claims format; SPIFFE already issues identity; OAuth already delegates; WIMSE is standardizing cross-system workload identity; MCP already moves agent traffic. The missing step is gating each on attestation. The framework bodies should make attestation a named requirement before the vocabulary ossifies.</li></ul></aside>
+</section>
+
 <!-- A3 · Why not OAuth scopes -->
 <section>
   <div class="slide-label">Appendix · For Q&amp;A</div>
