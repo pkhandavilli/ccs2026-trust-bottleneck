@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>How Confidential Computing earns trust at every step · CCS 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1520;
+    --bg2: #131c2e;
+    --bg3: #1a2540;
+    --accent: #50b4ff;
+    --accent2: #3d9de8;
+    --amber: #fbbf24;
+    --green: #34d399;
+    --red: #f87171;
+    --purple: #a78bfa;
+    --cyan: #22d3ee;
+    --muted: #8b9bb4;
+    --text: #e2e8f0;
+    --text-dim: #b0bfd4;
+    --border: rgba(80, 180, 255, 0.15);
+    --border2: rgba(80, 180, 255, 0.08);
+
+    /* trust-property colors */
+    --p-conf: var(--accent);
+    --p-integ: var(--green);
+    --p-ident: var(--purple);
+    --p-authz: var(--amber);
+    --p-prov: var(--cyan);
+    --p-live: var(--muted);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(80,180,255,0.10), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(167,139,250,0.08), transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  .wrap { max-width: 1380px; margin: 0 auto; padding: 30px 26px 60px; }
+
+  /* header */
+  .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 11px;
+  }
+  h1 {
+    font-family: 'Outfit', sans-serif; font-weight: 800;
+    font-size: clamp(27px, 3.8vw, 44px); line-height: 1.08;
+    margin: 0 0 12px; letter-spacing: -0.5px;
+  }
+  h1 .em { color: var(--accent); }
+  h1 .g { color: var(--green); }
+  .sub { font-size: clamp(15px,1.6vw,18px); color: var(--text-dim); max-width: 900px; margin: 0; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 11px; align-items: center; margin-top: 18px; }
+  .backlink, .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    text-decoration: none; border: 1px solid var(--border);
+    padding: 9px 15px; border-radius: 999px;
+    background: var(--bg2); color: var(--text); transition: all .16s ease;
+  }
+  .backlink { color: var(--muted); }
+  .backlink:hover { color: var(--accent); border-color: var(--accent); }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: linear-gradient(180deg, var(--accent), var(--accent2)); color: #06121f; border-color: transparent; }
+  .btn.primary:hover { filter: brightness(1.07); }
+  .btn.policy.active { background: linear-gradient(180deg, var(--purple), #8b6ee0); color:#120a26; border-color: transparent; }
+  .btn .pdot { width: 9px; height: 9px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 8px var(--purple); }
+
+  /* flow rail */
+  .rail-wrap { margin: 26px 0 22px; overflow-x: auto; padding-bottom: 6px; }
+  .rail { display: flex; align-items: stretch; gap: 0; min-width: 920px; }
+  .step {
+    position: relative; flex: 1; cursor: pointer;
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 13px; padding: 13px 12px 14px;
+    margin: 0 5px; transition: all .18s ease; text-align: center;
+  }
+  .step:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .step.active { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 10px 28px rgba(80,180,255,0.16); background: linear-gradient(180deg, rgba(80,180,255,0.10), var(--bg2)); }
+  .step .snum {
+    font-family:'JetBrains Mono',monospace; font-size: 10px; letter-spacing: 1px;
+    color: var(--muted); margin-bottom: 6px;
+  }
+  .step .sico { font-size: 26px; line-height: 1; margin-bottom: 7px; }
+  .step .stitle { font-family:'Outfit',sans-serif; font-weight: 700; font-size: 13px; line-height: 1.2; }
+  .step .pflag {
+    position: absolute; top: 8px; right: 8px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: rgba(167,139,250,0.18); color: var(--purple);
+    font-size: 9px; display: none; align-items: center; justify-content: center; font-weight: 800;
+    border: 1px solid color-mix(in srgb, var(--purple) 45%, transparent);
+  }
+  .step.policy .pflag { display: flex; }
+  .step .conn {
+    position: absolute; right: -10px; top: 50%; transform: translateY(-50%);
+    color: var(--muted); z-index: 2; opacity: .65;
+  }
+  .step:last-child .conn { display: none; }
+
+  /* policy-thread mode */
+  body.policy-mode .step:not(.policy) { opacity: 0.34; }
+  body.policy-mode .step.policy { border-color: var(--purple); }
+  body.policy-mode .step.policy.active { box-shadow: 0 0 0 1px var(--purple), 0 10px 28px rgba(167,139,250,0.20); }
+  body.policy-mode .ctrl:not(.policy) { opacity: 0.32; }
+  body.policy-mode .ctrl.policy { border-left-color: var(--purple); }
+
+  /* detail */
+  .detail { display: grid; grid-template-columns: 360px 1fr; gap: 24px; align-items: start; }
+  @media (max-width: 980px) { .detail { grid-template-columns: 1fr; } }
+
+  .summary {
+    background: linear-gradient(180deg, rgba(26,37,64,0.6), rgba(19,28,46,0.4));
+    border: 1px solid var(--border); border-radius: 16px; padding: 22px 22px 24px;
+    position: sticky; top: 16px;
+  }
+  .summary .slabel { font-family:'JetBrains Mono',monospace; font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+  .summary h2 { font-family:'Outfit',sans-serif; font-weight: 800; font-size: 23px; margin: 7px 0 4px; line-height: 1.12; }
+  .summary .who { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+  .summary .desc { font-size: 14.5px; color: var(--text-dim); line-height: 1.6; }
+  .summary .qline {
+    margin-top: 16px; padding: 13px 15px; border-radius: 11px;
+    background: var(--bg); border: 1px solid var(--border2);
+    font-size: 13px; color: var(--text-dim);
+  }
+  .summary .qline b { color: var(--green); }
+  .summary .props { margin-top: 15px; display: flex; flex-wrap: wrap; gap: 7px; }
+
+  .ctrls-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 13px; flex-wrap: wrap; gap: 8px; }
+  .ctrls-head .h { font-family:'Outfit',sans-serif; font-weight: 700; font-size: 17px; }
+  .ctrls-head .c { font-size: 12.5px; color: var(--muted); }
+
+  .ctrls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 620px) { .ctrls { grid-template-columns: 1fr; } }
+
+  .ctrl {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 12px; padding: 14px 15px; transition: all .18s ease;
+  }
+  .ctrl:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .ctrl .cname { font-family:'Outfit',sans-serif; font-weight: 700; font-size: 14.5px; display: flex; align-items: center; gap: 8px; }
+  .ctrl .cname .pmark {
+    font-size: 9px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase;
+    color: var(--purple); background: rgba(167,139,250,0.14);
+    border: 1px solid color-mix(in srgb, var(--purple) 40%, transparent);
+    padding: 2px 6px; border-radius: 5px; display: none;
+  }
+  .ctrl.policy .cname .pmark { display: inline-block; }
+  .ctrl .cproves { margin: 8px 0 7px; }
+  .ctrl .chow { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+  /* trust property tag */
+  .tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .3px;
+    padding: 3px 9px; border-radius: 999px;
+    border: 1px solid currentColor;
+  }
+  .tag .tdot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .tag.conf { color: var(--p-conf); }
+  .tag.integ { color: var(--p-integ); }
+  .tag.ident { color: var(--p-ident); }
+  .tag.authz { color: var(--p-authz); }
+  .tag.prov { color: var(--p-prov); }
+  .tag.live { color: var(--p-live); }
+  .tag .tlabel { color: var(--text); opacity: .9; }
+
+  /* legend + footer */
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin: 26px 2px 0; font-size: 12px; color: var(--muted); align-items: center; }
+  .legend .lh { font-family:'JetBrains Mono',monospace; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; }
+  footer {
+    margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border2);
+    font-size: 12.5px; color: var(--muted); line-height: 1.6;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  .disclaimer { margin-top: 9px; font-style: italic; opacity: 0.8; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Interactive companion · CCS 2026</div>
+  <h1>How <span class="em">confidential computing</span> earns trust <span class="g">at every step</span></h1>
+  <p class="sub">Walk an agent's full lifecycle, from the moment its workload launches to the action it takes in the world. At each step, see the concrete confidential-computing controls that establish trust and exactly what each one proves. Turn on the policy thread to follow how a governance policy (Agent Governance Toolkit style) is bound to the agent, attested, then enforced and recorded downstream.</p>
+
+  <div class="toolbar">
+    <a class="backlink" href="https://pkhandavilli.github.io/ccs2026-trust-bottleneck/" target="_blank" rel="noopener">← Back to the talk</a>
+    <button class="btn primary" id="nextBtn">Step through →</button>
+    <button class="btn policy" id="policyBtn"><span class="pdot"></span> Follow the policy thread</button>
+  </div>
+
+  <div class="rail-wrap">
+    <div class="rail" id="rail"></div>
+  </div>
+
+  <div class="detail">
+    <div class="summary" id="summary"></div>
+    <div>
+      <div class="ctrls-head">
+        <div class="h">Confidential-computing controls at this step</div>
+        <div class="c" id="ctrlCount"></div>
+      </div>
+      <div class="ctrls" id="ctrls"></div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="lh">What each control proves:</span>
+    <span class="tag conf"><span class="tdot"></span>Confidentiality</span>
+    <span class="tag integ"><span class="tdot"></span>Integrity</span>
+    <span class="tag ident"><span class="tdot"></span>Identity</span>
+    <span class="tag authz"><span class="tdot"></span>Authorization</span>
+    <span class="tag prov"><span class="tdot"></span>Provenance</span>
+    <span class="tag live"><span class="tdot"></span>Liveness</span>
+  </div>
+
+  <footer>
+    Companion to <strong>"Trust Is the Next Bottleneck: Why the Agentic Economy Needs Confidential Computing"</strong> · Confidential Computing Summit 2026.
+    Controls map to Azure Confidential Computing primitives (SEV-SNP / TDX, MAA attestation, AKV Secure Key Release, Confidential ACI CCE policy) and 2026 agent-trust work cited in <a href="https://pkhandavilli.github.io/ccs2026-trust-bottleneck/" target="_blank" rel="noopener">the talk references</a>.
+    The policy thread illustrates how an Agent Governance Toolkit-style policy can be measured into the attestation and enforced; it describes an architecture, not a shipped product claim.
+    <div class="disclaimer">Views are my own and do not represent my employer.</div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const P = {
+    conf:  { cls:'conf',  label:'Confidentiality' },
+    integ: { cls:'integ', label:'Integrity' },
+    ident: { cls:'ident', label:'Identity' },
+    authz: { cls:'authz', label:'Authorization' },
+    prov:  { cls:'prov',  label:'Provenance' },
+    live:  { cls:'live',  label:'Liveness' },
+  };
+  function tag(k) { const p = P[k]; return `<span class="tag ${p.cls}"><span class="tdot"></span><span class="tlabel">${p.label}</span></span>`; }
+
+  const steps = [
+    {
+      ico:'🏗️', title:'Launch', who:'TEE provisions the agent workload',
+      desc:'The agent process starts inside a hardware-isolated VM or container. Firmware, the guest OS, and the agent image are hashed into a launch measurement before any code runs.',
+      q:'Can anyone prove <b>what code actually launched</b>, not what was supposed to?',
+      controls:[
+        { name:'Hardware root of trust', proves:['integ'], how:'On-die RoT (AMD SEV-SNP / Intel TDX) signs the launch state. Trust descends from silicon, not from the host OS or hypervisor.' },
+        { name:'Measured launch', proves:['integ'], how:'Firmware, guest OS, and agent image are hashed into the launch digest. Any change to any byte changes the measurement.' },
+        { name:'Memory encryption in use', proves:['conf'], how:'Per-VM keys encrypt RAM. The host, hypervisor, and other tenants cannot read the agent\u2019s working memory.' },
+        { name:'Reproducible / auditable guest OS', proves:['integ'], how:'Customer rebuilds the guest image from source (Confidential ACI reproducible UVM, confcom tooling) and confirms it matches the measurement. No opaque TCB.' },
+      ]
+    },
+    {
+      ico:'📜', title:'Attest', who:'Hardware proves the measurement to a verifier',
+      desc:'The TEE emits a hardware-signed attestation quote. A remote verifier checks it against an expected policy and issues a short-lived token only if everything matches.',
+      q:'Before trusting this agent, can a third party <b>independently verify</b> it?',
+      controls:[
+        { name:'Remote attestation quote', proves:['integ','ident'], how:'Hardware-signed evidence of the exact launch measurement. Unforgeable without the platform key.' },
+        { name:'Independent appraisal (MAA)', proves:['integ'], how:'Microsoft Azure Attestation evaluates the quote against an expected reference and returns a signed token. Verification is separated from the workload itself.' },
+        { name:'Freshness nonce', proves:['live'], how:'A challenge value binds the quote to this session, so a captured quote cannot be replayed later.' },
+      ]
+    },
+    {
+      ico:'⚖️', title:'Bind policy', who:'The governance policy is fixed to the agent and measured', policy:true,
+      desc:'An Agent Governance Toolkit-style policy (which tools are allowed, which actions, which scopes) is bound to the agent and its hash is included in what gets attested. The quote now proves not just what launched, but under which rules it will operate.',
+      q:'Can you prove <b>which policy this agent is running under</b>, and that it can\u2019t be swapped?',
+      controls:[
+        { name:'Attested policy binding', proves:['integ','authz'], policy:true, how:'The policy hash is measured into the launch (or carried as an attested claim), so the attestation says \u201Crunning under policy v_hash.\u201D Change the policy, change the measurement.' },
+        { name:'CCE enforcement policy', proves:['integ'], policy:true, how:'Confidential ACI enforces a measured container policy (allowed images, no-SSH, mounts). The enforcement rules are themselves attested, not just configured.' },
+        { name:'Deny without attestation', proves:['authz'], policy:true, how:'If the bound policy does not match the expected hash, the next step never happens: no identity, no secrets. Fail closed, not open.' },
+      ]
+    },
+    {
+      ico:'🪪', title:'Get identity', who:'A workload identity is issued only after attestation', policy:false,
+      desc:'Only once the quote and bound policy verify does the agent receive a cryptographic identity. Identity is a consequence of proven integrity, not a credential handed out in advance.',
+      q:'Is this agent\u2019s identity <b>earned from hardware proof</b>, or just a token someone copied?',
+      controls:[
+        { name:'Attestation-gated identity', proves:['ident'], how:'Workload identity (SPIRE + TEE, Keycard runtime attestation) is minted only after attestation passes. No attestation, no identity.' },
+        { name:'No long-lived keys', proves:['conf'], how:'Credentials are created at runtime, scoped to the session, and never written to disk. There is no key file to steal.' },
+        { name:'Per-hop token exchange (RFC 8693)', proves:['prov'], how:'Each delegation hop swaps a fresh token that carries principal \u2192 agent \u2192 action, so identity travels with provenance.' },
+      ]
+    },
+    {
+      ico:'🔐', title:'Release secrets', who:'Keys unseal only to the attested agent',
+      desc:'Secrets and data keys are released to the agent only because its attestation matches a key-release policy. The secret is bound to the exact measurement and stays encrypted while in use.',
+      q:'Will this secret unseal for <b>anything other than the exact verified agent</b>?',
+      controls:[
+        { name:'Secure Key Release (SKR)', proves:['conf'], how:'AKV Premium / managed HSM releases a key only to a TEE whose attestation satisfies the key-release policy. The platform, not trust, enforces it.' },
+        { name:'Sealed to measurement', proves:['conf','integ'], how:'The secret is cryptographically bound to the launch measurement. A different image, even one byte off, cannot unseal it.' },
+        { name:'Confidential in use', proves:['conf'], how:'The secret stays inside encrypted memory while the agent uses it. It is never exposed to the host in cleartext.' },
+      ]
+    },
+    {
+      ico:'🛠️', title:'Call a tool', who:'Each MCP tool call is mutually attested and policy-checked', policy:true,
+      desc:'When the agent calls an MCP tool server, both ends present attestation and the call is checked against the bound policy. Tool invocation becomes a verified handshake, not an open port.',
+      q:'Is this tool call coming from a <b>verified agent</b>, going to a <b>verified server</b>, and <b>allowed</b>?',
+      controls:[
+        { name:'Attested tool invocation', proves:['integ'], how:'attestable-mcp-server in --enclaved mode denies any call that does not present valid attestation. Deny-by-default per-server allowlists.' },
+        { name:'Mutual attestation', proves:['ident'], how:'Agent and tool server each verify the other\u2019s measurement before exchanging data. Neither side trusts a bare network identity.' },
+        { name:'Per-call policy check', proves:['authz'], policy:true, how:'Every tool call is evaluated against the attested governance policy from the bind step. Out-of-policy calls are refused at invocation.' },
+      ]
+    },
+    {
+      ico:'🌐', title:'Act on the world', who:'The action is scoped by the attested policy', policy:true,
+      desc:'When the agent finally moves money, writes data, or hits an external API, the authorization decision references its hardware-verified identity and the policy it was attested under, capping what it can do.',
+      q:'When this agent acts, is its authority <b>bounded by what was attested</b>, or unlimited?',
+      controls:[
+        { name:'Per-action scoping', proves:['authz'], policy:true, how:'The attested policy limits which APIs, amounts, and scopes the agent may touch. A hijacked agent cannot exceed what the policy permits.' },
+        { name:'Authz bound to attested identity', proves:['authz','ident'], how:'Authorization decisions reference the hardware-verified identity, not a bearer token that could be replayed or forged.' },
+        { name:'Least privilege by default', proves:['authz'], how:'Capabilities are granted per action and expire with the session, so standing privilege never accumulates on the agent.' },
+      ]
+    },
+    {
+      ico:'🧾', title:'Record', who:'Every decision lands in a tamper-evident log', policy:true,
+      desc:'Each decision and action is written to an audit trail whose signing root lives in the TEE, including which policy version was in force. The provenance chain becomes externally verifiable.',
+      q:'Can you reconstruct <b>who did what, under which policy</b>, and prove the log wasn\u2019t edited?',
+      controls:[
+        { name:'TEE-signed audit log', proves:['prov','integ'], how:'The log\u2019s signing key lives inside the TEE, so entries are tamper-evident. An attacker on the host cannot rewrite history undetected.' },
+        { name:'Attested policy version in record', proves:['prov'], policy:true, how:'Each entry records the policy hash that was in force, closing the loop with the bind step: the audit proves which rules governed the action.' },
+        { name:'Verifiable provenance chain', proves:['prov'], how:'principal \u2192 agent \u2192 tool \u2192 action is reconstructable and externally checkable (Uber 2026 verifiable-provenance roadmap).' },
+      ]
+    },
+  ];
+
+  let active = 0;
+  let policyMode = false;
+
+  // build rail
+  const rail = document.getElementById('rail');
+  function arrowSVG() {
+    return '<span class="conn"><svg width="20" height="14" viewBox="0 0 20 14" fill="none"><path d="M0 7h17M13 2l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+  }
+  rail.innerHTML = steps.map((s, i) =>
+    `<div class="step ${s.policy ? 'policy':''}" data-i="${i}">
+       <div class="pflag">P</div>
+       <div class="snum">STEP ${i+1}</div>
+       <div class="sico">${s.ico}</div>
+       <div class="stitle">${s.title}</div>
+       ${i < steps.length-1 ? arrowSVG() : ''}
+     </div>`
+  ).join('');
+  rail.querySelectorAll('.step').forEach(el => el.addEventListener('click', () => { active = +el.dataset.i; render(); }));
+
+  // render detail
+  function render() {
+    rail.querySelectorAll('.step').forEach(el => el.classList.toggle('active', +el.dataset.i === active));
+    const s = steps[active];
+
+    const sum = document.getElementById('summary');
+    const propSet = [...new Set(s.controls.flatMap(c => c.proves))];
+    sum.innerHTML =
+      `<div class="slabel">Step ${active+1} of ${steps.length}</div>
+       <h2>${s.ico} ${s.title}</h2>
+       <div class="who">${s.who}</div>
+       <div class="desc">${s.desc}</div>
+       <div class="qline">The question it answers: ${s.q}</div>
+       <div class="props">${propSet.map(tag).join('')}</div>`;
+
+    document.getElementById('ctrlCount').textContent = s.controls.length + ' controls';
+    const ctrls = document.getElementById('ctrls');
+    ctrls.innerHTML = s.controls.map(c =>
+      `<div class="ctrl ${c.policy ? 'policy':''}">
+         <div class="cname">${c.name}<span class="pmark">policy</span></div>
+         <div class="cproves">${c.proves.map(tag).join(' ')}</div>
+         <div class="chow">${c.how}</div>
+       </div>`
+    ).join('');
+  }
+
+  // controls
+  document.getElementById('nextBtn').addEventListener('click', () => { active = (active + 1) % steps.length; render(); });
+  document.getElementById('policyBtn').addEventListener('click', (e) => {
+    policyMode = !policyMode;
+    document.body.classList.toggle('policy-mode', policyMode);
+    e.currentTarget.classList.toggle('active', policyMode);
+    if (policyMode && !steps[active].policy) { active = steps.findIndex(s => s.policy); }
+    render();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') { active = (active+1) % steps.length; render(); }
+    if (e.key === 'ArrowLeft')  { active = (active-1+steps.length) % steps.length; render(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
