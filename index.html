@@ -1181,12 +1181,10 @@ footer, header, hgroup, main, menu, nav, section {
   .hw-box ul li {
     font-size: 0.75em;
     color: var(--text-dim);
-    padding: 7px 0;
+    padding: 7px 0 7px 18px;
     border-bottom: 1px solid var(--border2);
     line-height: 1.4;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    position: relative;
   }
 
   .hw-box ul li:last-child { border-bottom: none; }
@@ -1194,7 +1192,8 @@ footer, header, hgroup, main, menu, nav, section {
   .hw-box ul li::before {
     content: '•';
     color: var(--muted);
-    flex-shrink: 0;
+    position: absolute;
+    left: 0;
   }
 
   .asymmetry-callout {
