@@ -1769,6 +1769,10 @@ footer, header, hgroup, main, menu, nav, section {
     "MCP Is Dead?", Quandri engineering blog (May 29, HN 400 pts, 410 comments): "Tool definitions alone consume 10.5% of Claude's context window. The architecture is insufficient."
   </p>
 
+  <p class="fragment fade-up" style="font-size:0.85em; margin-top:10px;">
+    Either way, the MCP spec still has no standard mechanism to <strong>require</strong> hardware attestation from a tool server.
+  </p>
+
   <aside class="notes">
     <ul>
       <li>"Five weeks ago, the NSA's AI Security Center published its first MCP threat model. Seventeen pages, the most careful treatment to date. It calls for cryptographic identity and verifiable logs, but stops short of a hardware root of trust."</li>
@@ -2349,7 +2353,7 @@ footer, header, hgroup, main, menu, nav, section {
     <div class="build-card fragment fade-up">
       <div class="card-num">2</div>
       <h4>If you build infrastructure: connect TEE attestation to agent identity</h4>
-      <p>SPIFFE works. RFC 8693 works. attestable-mcp-server works. The primitives exist. The integration doesn't. Run SPIRE inside a TDX or SEV-SNP boundary. Issue X.509 SVIDs with TEE measurements attached. That's the missing layer.</p>
+      <p>SPIFFE works. RFC 8693 works. attestable-mcp-server works. The primitives exist. The integration doesn't. Run SPIRE inside a TDX or SEV-SNP boundary. Issue X.509 SVIDs with TEE measurements attached. That's the missing layer. Then ship an attested mode for MCP: deny-by-default unless the tool server presents a valid attestation, and push that requirement into the next MCP spec proposal.</p>
       <span class="agt-tag">Infra builders</span>
     </div>
     <div class="build-card fragment fade-up">
