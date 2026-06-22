@@ -1492,7 +1492,7 @@ footer, header, hgroup, main, menu, nav, section {
   <aside class="notes">
     <ul>
       <li>Open cold, no introduction.</li>
-      <li>"770,000 AI agents. Compromised in a single night. One database vulnerability."</li>
+      <li>"Over three quarters of a million AI agents. Compromised in a single night. One database vulnerability."</li>
       <li>Then advance into the five numbers.</li>
     </ul>
   </aside>
@@ -1507,8 +1507,8 @@ footer, header, hgroup, main, menu, nav, section {
   <div class="stats-grid">
     <div class="stat-item" id="stat1" data-delay="0">
       <span class="number">770K</span>
-      <span class="caption">AI agents compromised simultaneously via a single database vulnerability</span>
-      <span class="source">Moltbook breach · Wiz · Feb 2026</span>
+      <span class="caption">AI agents reportedly compromised simultaneously via a single database vulnerability</span>
+      <span class="source">Reported: Moltbook breach · Wiz Research · Feb 2026</span>
     </div>
     <div class="stat-item" id="stat2" data-delay="400">
       <span class="number">195M</span>
@@ -1539,7 +1539,7 @@ footer, header, hgroup, main, menu, nav, section {
 
   <aside class="notes">
     <ul>
-      <li>"770,000 agents. Compromised in a single night. One database vulnerability."</li>
+      <li>"Over three quarters of a million agents. Compromised in a single night. One database vulnerability."</li>
       <li>"195 million citizen records. One attacker, Claude Code and GPT-4.1, nine agencies, ninety days."</li>
       <li>"150 million downloads across a poisoned MCP supply chain. Ten CVEs."</li>
       <li>"One character in an HTTP Host header. Clinical databases, email inboxes, SSH into industrial devices."</li>
@@ -1647,7 +1647,7 @@ footer, header, hgroup, main, menu, nav, section {
   </div>
 
   <div class="gap-callout fragment fade-up">
-    ⚠️ Every protocol demands verifiable agent identity, but none specify a <strong>hardware root of trust</strong>. That's the missing layer. That's us.
+    ⚠️ Every protocol demands verifiable agent identity, but none specify a <strong>hardware root of trust</strong>. That's the missing layer. That's this community.
   </div>
 
   <aside class="notes">
@@ -1656,7 +1656,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"Visa, Trusted Agent Protocol. Mastercard, Agent Pay. Google, AP2, contributed to FIDO. FIDO stood up its Agentic Authentication working group eight weeks ago."</li>
       <li>"They know what they need. They don't yet have the how at the hardware layer."</li>
       <li>"Mastercard says tokenized identity. That's EMV for agents. EMV needed a secure element. Agent Pay will need a TEE."</li>
-      <li>"Every protocol demands verifiable identity. None specify a hardware root of trust. That's the missing layer. That's us."</li>
+      <li>"Every protocol demands verifiable identity. None specify a hardware root of trust. That's the missing layer. That's this community."</li>
     </ul>
   </aside>
 </section>
@@ -1765,11 +1765,6 @@ footer, header, hgroup, main, menu, nav, section {
     <cite>NSA AI Security Center Advisory, May 2026</cite>
   </div>
 
-  <div class="blockquote-fancy fragment fade-up" style="border-color: var(--amber); background: rgba(251,191,36,0.05);">
-    "The NSA document misses the real problem. Securing the API endpoints doesn't help when the attacker's actual leverage is poisoning the <em>context that flows through</em> those endpoints."
-    <cite>Data Science Collective, May 2026 (Medium)</cite>
-  </div>
-
   <p class="fragment fade-up" style="font-size:0.85em; color: var(--accent); font-weight:600; margin-top:12px;">
     "MCP Is Dead?", Quandri engineering blog (May 29, HN 400 pts, 410 comments): "Tool definitions alone consume 10.5% of Claude's context window. The architecture is insufficient."
   </p>
@@ -1777,8 +1772,7 @@ footer, header, hgroup, main, menu, nav, section {
   <aside class="notes">
     <ul>
       <li>"Five weeks ago, the NSA's AI Security Center published its first MCP threat model. Seventeen pages, the most careful treatment to date. It calls for cryptographic identity and verifiable logs, but stops short of a hardware root of trust."</li>
-      <li>"They got the surface area right. They missed the deeper layer: hardware-rooted proof of what's actually running."</li>
-      <li>"Securing the endpoints doesn't help when the attacker's leverage is poisoning the context that flows through them."</li>
+      <li>"They got the surface area right. They missed the deeper layer: hardware-rooted proof of what's actually running. Securing the endpoints doesn't help when the attacker's leverage is poisoning the context that flows through them."</li>
       <li>"The community feels it too: MCP is dead hit the front page, 400 points, 410 comments in a day."</li>
       <li>"They framed it as a performance complaint: tool definitions alone eat 10.5% of Claude's context window. But it's not a performance problem. It's a security problem. Every byte of tool definition is a byte an attacker can poison, and a byte your safety instructions can't use. MCP puts the tool catalog inside the brain. The fix is to put it in the infrastructure, behind attestation, outside the context window entirely."</li>
       <li>"Let me show you six signals that prove this in production."</li>
@@ -1804,7 +1798,7 @@ footer, header, hgroup, main, menu, nav, section {
     <tbody>
       <tr class="fragment fade-up">
         <td>OX Security<br><span style="color:var(--muted);font-size:0.8em">Apr 15</span></td>
-        <td>10 CVEs, 150M+ downloads, 9/11 registries poisoned. Anthropic: "STDIO execution is expected behavior."</td>
+        <td>10 CVEs, 150M+ downloads, 9/11 registries poisoned. STDIO execution classified as expected behavior, not a vulnerability.</td>
         <td>Auth optional by design, no attestation</td>
       </tr>
       <tr class="fragment fade-up">
@@ -1864,8 +1858,6 @@ footer, header, hgroup, main, menu, nav, section {
         <li><strong>Microsoft Agent Governance Toolkit</strong>: open-source, maps all 10 OWASP risks. May 27, 2026.</li>
         <li><strong>NSA AI Security Center</strong>: MCP threat model. May 2026.</li>
         <li><strong>NIST AI RMF</strong>: Agentic AI agent standards initiative. Feb 2026.</li>
-        <li><strong>WorkOS auth.md</strong>: Agent registration protocol. May 25, 2026.</li>
-        <li><strong>Stanford CS336 CLAUDE.md</strong>: Agent safety guidelines adopted in curricula.</li>
       </ul>
     </div>
     <div class="col-card fragment fade-up">
@@ -1874,9 +1866,7 @@ footer, header, hgroup, main, menu, nav, section {
         <li><strong>Okta for AI Agents</strong>: OAuth/OIDC identity. GA April 30. No hardware attestation.</li>
         <li><strong>Cequence AI Gateway</strong>: Runtime privilege scoping. No hardware root.</li>
         <li><strong>BeyondTrust PathfinderAI</strong>: PAM + MCP server. No TEE binding.</li>
-        <li><strong>ServiceNow</strong>: Agent risk governance. No hardware attestation.</li>
         <li><strong>CSA MAESTRO</strong>: 7-layer threat taxonomy. No hardware layer defined.</li>
-        <li>AI Agent runs amok in Fedora (HN 549 pts, Jun 11), identity never verified.</li>
       </ul>
     </div>
   </div>
@@ -1892,7 +1882,6 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"This is real progress, I'm not dismissing it. OWASP's Agentic Top 10, Microsoft's own toolkit I build on, NSA, NIST, ISO, CSA."</li>
       <li>"Not one of them requires hardware attestation. Even Stanford's agent curriculum encodes the same gap."</li>
       <li>"We have a frameworks problem: the vocabulary is fragmenting faster than the solutions converge."</li>
-      <li>"An AI agent ran amok in Fedora last week, 549 points on Hacker News. It acted with authority it could not verify. That's what optional identity looks like."</li>
     </ul>
   </aside>
 </section>
@@ -2158,14 +2147,14 @@ footer, header, hgroup, main, menu, nav, section {
 ============================================ -->
 <section>
   <div class="slide-label">Act 4 · Production Example</div>
-  <h2>E2E payments agent on <span class="accent">Confidential ACI</span></h2>
+  <h2>E2E payments agent on <span class="accent">confidential containers</span></h2>
 
   <svg viewBox="0 0 880 310" style="width:100%;max-height:280px;margin:4px 0;" xmlns="http://www.w3.org/2000/svg">
     <rect width="880" height="310" fill="#131c2e" rx="12"/>
 
     <!-- TEE boundary -->
     <rect x="20" y="20" width="840" height="210" rx="10" fill="none" stroke="rgba(52,211,153,0.35)" stroke-width="1.5" stroke-dasharray="6,3"/>
-    <text x="40" y="38" fill="#34d399" font-family="Outfit,sans-serif" font-size="10" font-weight="700" letter-spacing="1">CONFIDENTIAL ACI · TEE BOUNDARY (AMD SEV-SNP) · LAYERS 1-2</text>
+    <text x="40" y="38" fill="#34d399" font-family="Outfit,sans-serif" font-size="10" font-weight="700" letter-spacing="1">CONFIDENTIAL CONTAINER · TEE BOUNDARY (AMD SEV-SNP) · LAYERS 1-2</text>
 
     <!-- User -->
     <rect x="40" y="55" width="110" height="50" rx="6" fill="#1a2540" stroke="#50b4ff" stroke-width="1.2"/>
@@ -2228,7 +2217,7 @@ footer, header, hgroup, main, menu, nav, section {
 
     <!-- Bottom labels -->
     <text x="438" y="240" text-anchor="middle" fill="#34d399" font-family="Outfit,sans-serif" font-size="10" font-weight="600">Result: Cryptographically verifiable chain from user intent → payment execution → tamper-evident audit</text>
-    <text x="438" y="258" text-anchor="middle" fill="#8b9bb4" font-family="Outfit,sans-serif" font-size="9">Blue41/Bunq €0.01 attack: impossible, context path is attested and sealed</text>
+    <text x="438" y="258" text-anchor="middle" fill="#8b9bb4" font-family="Outfit,sans-serif" font-size="9">Blue41/Bunq €0.01 attack: contained, not magic. Layer 5 policy caps a tricked agent's scope; the action stays governable.</text>
 
     <!-- Legend -->
     <rect x="40" y="270" width="12" height="12" rx="2" fill="none" stroke="rgba(52,211,153,0.35)" stroke-width="1.5" stroke-dasharray="4,2"/>
@@ -2239,16 +2228,17 @@ footer, header, hgroup, main, menu, nav, section {
     <text x="310" y="281" fill="#8b9bb4" font-family="Outfit,sans-serif" font-size="9">attested MCP channel</text>
   </svg>
 
-  <p class="diagram-caption fragment fade-up">This architecture defeats the Blue41/Bunq attack: the context path is attested and sealed, a memo field cannot become an agent instruction because the context channel itself has a hardware witness.</p>
+  <p class="diagram-caption fragment fade-up">This architecture contains the Blue41/Bunq attack. The memo still reaches the context window, but Layer 5 deterministic policy (enforced inside the TEE, with attestation proving the policy engine is unmodified) caps what a tricked agent can do. Prompt injection stays possible; silent privilege escalation does not.</p>
 
   <aside class="notes">
     <ul>
-      <li>"This is not theoretical. Azure Confidential Container Instances runs AMD SEV-SNP. Every container gets a TEE boundary."</li>
+      <li>"This is not theoretical. I'm using Azure Confidential Container Instances because it's what I ship, but this architecture works on any SEV-SNP or TDX platform. Every container gets a TEE boundary."</li>
       <li>"Follow the flow: user intent, orchestrator with a SPIRE identity, payment agent with sealed credentials, MCP tool in enclaved mode, Visa signed identity header, an audit trail signed by hardware."</li>
       <li>"Each box is tagged with the layer it implements: identity on the two agents, attested invocation and policy at the tool server, audit across the bottom, all inside the layer one-two enclave."</li>
       <li>"Every hop is an RFC 8693 token exchange. Every tool call is attested MCP in enforcement mode."</li>
-      <li>"The Blue41 attack is impossible here. The context path is inside the TEE boundary, so a one-cent memo can't become an agent instruction. The context channel has a hardware witness."</li>
+      <li>"Be precise here: attestation does not stop a malicious memo from being read. The one-cent memo still enters the context window. What contains it is Layer 5: deterministic policy enforced inside the TEE, with attestation proving the policy engine itself hasn't been tampered with. A tricked agent can't exceed its authorized scope. That's the composition: attestation proves the policy is real, policy constrains the agent."</li>
       <li>"This is about three months of engineering. It's the integration nobody has shipped at scale yet."</li>
+      <li><strong>[If asked]</strong> "External validation: Microsoft's open-source Agent Governance Toolkit names cMCP, a reference implementation of policy enforcement inside a confidential TEE that emits TRACE attestation claims. That's exactly this composition: attestation proves the policy engine, policy constrains the agent."</li>
       <li><strong>[If time]</strong> "Walk every box out loud: intent enters, the orchestrator carries a SPIRE SVID minted inside the enclave, it exchanges an RFC 8693 token to the payment agent whose credentials are sealed to the TEE, the agent calls the MCP server in enclaved mode where policy is enforced, Visa gets a signed identity header, and the hardware signs the audit line. Six boxes, six layers, one flow."</li>
     </ul>
   </aside>
@@ -2321,8 +2311,8 @@ footer, header, hgroup, main, menu, nav, section {
       <span><strong>WorkOS shipped auth.md.</strong> Uber shipped agent identity (SPIFFE + RFC 8693). 1Password shipped attestation delegation. The market is converging on attested identity, waiting for the <strong>hardware layer.</strong></span>
     </li>
     <li class="hot-bullet fragment fade-up">
-      <span class="urgency-date">Jun 14, 2026</span>
-      <span><strong>pkhandavilli/agent-governance-toolkit</strong>: provider-neutral handshake attestation PR open. Building in public. 9 days before this talk.</span>
+      <span class="urgency-date">Apr-Jun 2026</span>
+      <span><strong>Hardware attestation entered the governance layer.</strong> I proposed TEE-bound agent identity with SEV-SNP attestation in Microsoft's open-source Agent Governance Toolkit (ADR 0010). Its Advanced conformance tier already rejects software-only keys.</span>
     </li>
     <li class="hot-bullet fragment fade-up">
       🍎 Apple shipped PCC on Google Cloud (Intel TDX + NVIDIA CC + Titan), details expected at THIS summit
@@ -2335,9 +2325,9 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"EU AI Act: seven weeks out. The fines start August 2nd."</li>
       <li>Read the Sweden IMY quote: "shifting from promises to verifiable proof. That's our language, and a data regulator found it first."</li>
       <li>"WorkOS, Uber, 1Password: production companies shipping on top of the primitive this room built."</li>
-      <li>"I'll put my own team on the spot: we opened a provider-neutral attestation handshake in public review days ago. Go comment on it."</li>
+      <li>"I'll put myself on the spot: I proposed TEE-bound agent identity with SEV-SNP attestation in Microsoft's open-source Agent Governance Toolkit. It's ADR 0010, in public review. Go shape it."</li>
       <li>"Two weeks ago, the most privacy-driven company on earth couldn't promise privacy at AI scale. Apple shipped Private Cloud Compute on Google Cloud: Intel TDX, NVIDIA confidential GPUs, Titan root of trust. Those details get presented here at this summit."</li>
-      <li>"The market is moving, the regulators are moving, the builders are moving. The only question is whether the trust layer ships before or after the breach that makes 770,000 look small."</li>
+      <li>"The market is moving, the regulators are moving, the builders are moving. The only question is whether the trust layer ships before or after the breach that makes this one look small."</li>
     </ul>
   </aside>
 </section>
@@ -2365,13 +2355,13 @@ footer, header, hgroup, main, menu, nav, section {
     <div class="build-card fragment fade-up">
       <div class="card-num">3</div>
       <h4>If you set standards: hardware attestation belongs in every framework</h4>
-      <p>OWASP Agentic Top 10. Microsoft AGT. NIST. ISO. CSA. CCC. Every framework is defining agent security vocabulary, none include hardware attestation as a requirement. This community needs to show up in those frameworks. Not as nice-to-have. As the foundation.</p>
+      <p>OWASP Agentic Top 10. Microsoft AGT. NIST. ISO. CSA. CCC. Every framework is defining agent security vocabulary, and hardware attestation is almost never a hard requirement. AGT's Advanced conformance tier is the early exception: it rejects software-only keys. Make that the template, not the outlier. This community needs to show up in these frameworks. Not as nice-to-have. As the foundation.</p>
       <span class="agt-tag">Standards bodies</span>
     </div>
   </div>
 
   <div class="sweden-box fragment fade-up">
-    <strong>Confidential computing for agent governance:</strong> I've opened a provider-neutral attestation proposal against the Agent Governance Toolkit: hardware attestation, TEE-backed identity, and sealed credential storage as shared primitives for the governance layer. This has to be a community effort. The attestation layer should be a shared primitive, not a proprietary add-on. If you maintain a framework, let's build it together. <strong style="color:#86efac">PR open: github.com/pkhandavilli/agent-governance-toolkit/pull/1</strong>
+    <strong>Confidential computing for agent governance:</strong> I proposed TEE-bound agent identity with SEV-SNP attestation in Microsoft's open-source Agent Governance Toolkit: hardware attestation, TEE-backed identity, and sealed credential storage as shared primitives. It's provider-neutral by design, SEV-SNP first, then TDX, Nitro, and Confidential Space. The toolkit's Advanced conformance tier already rejects software-only signing keys. This has to be a community effort: a shared primitive, not a proprietary add-on. <strong style="color:#86efac">github.com/microsoft/agent-governance-toolkit · ADR 0010</strong>
   </div>
 
   <aside class="notes">
@@ -2380,7 +2370,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"If you build agents: the Uber architecture is public, the 1Password architecture is public, attestable-mcp-server is on GitHub. You can implement this today."</li>
       <li>"If you run infrastructure: you already run SPIRE on Kubernetes. Add a TEE boundary. The delta from workload identity to attested agent identity is one wrapper."</li>
       <li>"If you write standards: framework fragmentation is the real emergency. Six major agent-security frameworks are in flight and none require hardware attestation. Fix that before they ossify."</li>
-      <li>"I'll put myself on the spot: I opened an attestation pull request against the agent governance toolkit days ago. It's in public review. If you care about this, contribute."</li>
+      <li>"I'll put myself on the spot: I proposed TEE-bound agent identity in Microsoft's open-source Agent Governance Toolkit, ADR 0010, now in public review. The toolkit's Advanced conformance tier already rejects software-only keys. If you care about this, contribute."</li>
     </ul>
   </aside>
 </section>
@@ -2410,7 +2400,7 @@ footer, header, hgroup, main, menu, nav, section {
     Both followed the same arc: <strong>innovation first, trust later, hardware eventually.</strong><br><br>
     The agentic economy is the third wave, and it's moving faster than either of them.<br><br>
     The difference this time? <strong>We're not late.</strong> The standards are being written right now. The builders are publishing right now. The regulators are ruling right now.<br><br>
-    The only question is whether the trust layer ships before or after the breach that makes 770,000 look like a rounding error.
+    The only question is whether the trust layer ships before or after the breach that makes three quarters of a million look like a rounding error.
   </p>
 
   <p class="fragment fade-up" style="font-size:1em;font-weight:700;color:var(--accent);margin-top:20px;">
@@ -2431,7 +2421,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>"I've watched two trust revolutions." Pause, let the three waves appear.</li>
       <li>"Both followed the same arc: innovation first, trust later, hardware eventually. The agentic economy is the third wave, and it's moving faster than either."</li>
       <li>"The difference this time? We're not late. The standards are being written, the builders are publishing, the regulators are ruling, right now."</li>
-      <li>"The only question is whether the trust layer ships before or after the breach that makes 770,000 look like a rounding error."</li>
+      <li>"The only question is whether the trust layer ships before or after the breach that makes three quarters of a million look like a rounding error."</li>
       <li>"This room has built every confidential computing primitive that exists. Let's make sure the agentic economy is built on top of them, not beside them." Then silence, then step back.</li>
       <li>If time allows, the optional Apple beat: "Two weeks ago Apple couldn't promise privacy at AI scale. It had to prove it, on Intel TDX and NVIDIA confidential GPUs. With hardware you built."</li>
     </ul>
@@ -2587,9 +2577,9 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
   <div class="sweden-box">
-    This is a proposal in <strong>public review</strong>, not a shipped feature: I opened a provider-neutral attestation PR against the open-source Agent Governance Toolkit. The attestation layer should be a shared primitive. <strong style="color:#86efac">github.com/pkhandavilli/agent-governance-toolkit/pull/1</strong>
+    This is a proposed ADR in <strong>public review</strong>, not a shipped Azure feature: I proposed provider-neutral TEE-bound agent identity in Microsoft's open-source Agent Governance Toolkit. The attestation layer should be a shared primitive. <strong style="color:#86efac">github.com/microsoft/agent-governance-toolkit · ADR 0010</strong>
   </div>
-  <aside class="notes"><ul><li>Backup. Honest framing: my proposal, in review. Do not claim AGT itself is adding confidential computing.</li></ul></aside>
+  <aside class="notes"><ul><li>Backup. Honest framing: my proposed ADR, in review in the official toolkit. The Advanced conformance tier already requires a TEE-sealed key. Frame it as an open-source governance proposal, not an Azure product commitment.</li></ul></aside>
 </section>
 </div><!-- /slides -->
 </div><!-- /reveal -->
