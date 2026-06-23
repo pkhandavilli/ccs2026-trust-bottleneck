@@ -2035,14 +2035,14 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
     <div class="panel-card ">
       <div class="org">🔑 1Password · Keycard</div>
-      <div class="date">May 21, 2026</div>
+      <div class="date">May 19-21, 2026</div>
       <ul>
-        <li>Runtime credential delegation via attestation</li>
-        <li>No long-lived API keys. No credentials on disk.</li>
-        <li>Verifiable agent identity at runtime via attestation</li>
-        <li>Session-scoped, RFC 8693 per-hop exchange</li>
+        <li>1Password Credential Broker: credentials brokered on signed attestation</li>
+        <li>Zero standing privileges. No usable secrets on disk.</li>
+        <li>Keycard: runtime attestation, no long-lived keys</li>
+        <li>Session-scoped, short-lived credentials</li>
       </ul>
-      <div class="missing">Signal: Two separate vendors, same week, same trust anchor. 1Password for agent credential management, Keycard for runtime attestation. Not OAuth. Not API keys.</div>
+      <div class="missing">Signal: Two vendors, same week, same trust anchor. Attested, just-in-time credentials, no standing secrets. Not static API keys.</div>
     </div>
   </div>
 
@@ -2055,7 +2055,7 @@ footer, header, hgroup, main, menu, nav, section {
       <li>This is the structural climax: three teams, three countries, same week, same answer.</li>
       <li>"Uber: production agent identity at massive scale, per-hop RFC 8693 token exchange, a roadmap that says verifiable provenance. What's missing is the TEE."</li>
       <li>"attestable-mcp-server: a May arXiv paper with working code. Enclaved mode, deny without attestation. It's open source and ready. Why isn't it in the MCP spec?"</li>
-      <li>"1Password and Keycard, two separate vendors the same week: 1Password, whose whole business is secrets, shipped agent credential management; Keycard shipped runtime attestation with no long-lived keys. Both anchored on attestation, not OAuth, not API keys. That's a market signal."</li>
+      <li>"1Password and Keycard, two vendors, same week. 1Password, who is presenting here this week, shipped their Credential Broker: the agent proves context with a signed badge, and credentials are brokered just-in-time, with no standing secrets. That is software attestation, the same convergence I am describing, and the hardware root is the layer still missing. Keycard, a pure attestation play, shipped runtime attestation with no long-lived keys. The signal is the anchor they chose: attestation, not static API keys."</li>
       <li>Pause. "Three teams, working independently, converged on the same answer."</li>
       <li>"What none of them has yet is the end-to-end integration. That's the work this room does in 2026."</li>
     </ul>
