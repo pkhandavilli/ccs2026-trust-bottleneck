@@ -1532,7 +1532,7 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <p class="montage-kicker fragment fade-up">
+  <p class="montage-kicker ">
     None of these agents could prove (cryptographically, verifiably, to anyone)<br>
     who they were, what code they were running, or whether they'd been tampered with.
   </p>
@@ -1568,21 +1568,21 @@ footer, header, hgroup, main, menu, nav, section {
       </tr>
     </thead>
     <tbody>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>💳 Payments</td>
         <td>2014</td>
         <td>Magstripe cards cloned at scale</td>
         <td>EMV chip + Secure Element attestation</td>
         <td>$2T contactless payments in 2025</td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>☁️ Cloud</td>
         <td>2018</td>
         <td>"Trust our hyperscaler" promises</td>
         <td>Intel SGX / TDX, AMD SEV-SNP → TEEs</td>
         <td>75% enterprise CC adoption (IDC 2025)</td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td class="amber-cell">🤖 Agents</td>
         <td class="amber-cell">NOW</td>
         <td class="amber-cell">OAuth tokens for 10K decisions/min</td>
@@ -1592,11 +1592,11 @@ footer, header, hgroup, main, menu, nav, section {
     </tbody>
   </table>
 
-  <blockquote class="blockquote-fancy fragment fade-up">
+  <blockquote class="blockquote-fancy ">
     Visa can prove <em>who</em> an agent claims to be, but not <em>what code</em> is running. Payments is reaching for a hardware root of trust. <strong>This room already built it.</strong>
   </blockquote>
 
-  <p class="fragment fade-up context-stat">June 11: Visa connected its payment network to ChatGPT. Reddit's top reaction (4,503 upvotes): "First person to trick the chatbot is about to make bank."</p>
+  <p class=" context-stat">June 11: Visa connected its payment network to ChatGPT. Reddit's top reaction (4,503 upvotes): "First person to trick the chatbot is about to make bank."</p>
 
   <aside class="notes">
     <ul>
@@ -1620,25 +1620,25 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>Payments is building <span class="accent">agent trust</span> right now</h2>
 
   <div class="logos-grid">
-    <div class="logo-card fragment fade-up">
+    <div class="logo-card ">
       <div class="company">🔵 Visa</div>
       <div class="protocol">Trusted Agent Protocol</div>
       <div class="desc">Signed agent-identity headers at the transport layer. Verifiable identity per request, not per session.</div>
       <span class="highlight">verifiable identity</span>
     </div>
-    <div class="logo-card fragment fade-up">
+    <div class="logo-card ">
       <div class="company">🟠 Mastercard</div>
       <div class="protocol">Agent Pay</div>
       <div class="desc">Tokenized agent identities. Dynamic credentials bound to authorized intent.</div>
       <span class="highlight">tokenized identity</span>
     </div>
-    <div class="logo-card fragment fade-up">
+    <div class="logo-card ">
       <div class="company">🟢 Google</div>
       <div class="protocol">AP2 (Agent Payments Protocol)</div>
       <div class="desc">Verifiable credentials with signed mandates contributed to FIDO Alliance.</div>
       <span class="highlight">signed mandates</span>
     </div>
-    <div class="logo-card fragment fade-up">
+    <div class="logo-card ">
       <div class="company">🔐 FIDO Alliance</div>
       <div class="protocol">Agentic Authentication TWG</div>
       <div class="desc">Chartered April 27–28, 2026. Three workstreams: Verifiable User Instructions, Agent Auth, Trusted Delegation for Commerce.</div>
@@ -1646,7 +1646,7 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <div class="gap-callout fragment fade-up">
+  <div class="gap-callout ">
     ⚠️ Every protocol demands verifiable agent identity, but none specify a <strong>hardware root of trust</strong>. That's the missing layer. That's this community.
   </div>
 
@@ -1740,7 +1740,7 @@ footer, header, hgroup, main, menu, nav, section {
     <text x="481" y="69" text-anchor="middle" fill="#34d399" font-family="Outfit,sans-serif" font-size="10" font-weight="600">← Should be inside an attested TEE boundary →</text>
   </svg>
 
-  <p class="flow-label fragment fade-up">Blue41 / Bunq (Jun 10): A €0.01 transfer with prompt injection in the memo field hijacked the banking AI agent. Legitimate context becomes attack vector with no attestation boundary.</p>
+  <p class="flow-label ">Blue41 / Bunq (Jun 10): A €0.01 transfer with prompt injection in the memo field hijacked the banking AI agent. Legitimate context becomes attack vector with no attestation boundary.</p>
 
   <aside class="notes">
     <ul>
@@ -1760,16 +1760,16 @@ footer, header, hgroup, main, menu, nav, section {
   <div class="slide-label">Act 3 · The NSA Agrees</div>
   <h2>The <span class="accent">NSA got MCP right</span>, and missed the deeper problem</h2>
 
-  <div class="blockquote-fancy fragment fade-up">
+  <div class="blockquote-fancy ">
     "Five weeks before this talk, the NSA's AI Security Center published its first official MCP threat model. 17 pages, the most careful security treatment of MCP to date. It calls for cryptographic agent identity and verifiable logs, and stops short of a <strong>hardware root of trust</strong>."
     <cite>NSA AI Security Center Advisory, May 2026</cite>
   </div>
 
-  <p class="fragment fade-up" style="font-size:0.85em; color: var(--accent); font-weight:600; margin-top:12px;">
+  <p class="" style="font-size:0.85em; color: var(--accent); font-weight:600; margin-top:12px;">
     "MCP Is Dead?", Quandri engineering blog (May 29, HN 400 pts, 410 comments): "Tool definitions alone consume 10.5% of Claude's context window. The architecture is insufficient."
   </p>
 
-  <p class="fragment fade-up" style="font-size:0.85em; margin-top:10px;">
+  <p class="" style="font-size:0.85em; margin-top:10px;">
     Either way, the MCP spec still has no standard mechanism to <strong>require</strong> hardware attestation from a tool server.
   </p>
 
@@ -1800,36 +1800,36 @@ footer, header, hgroup, main, menu, nav, section {
       </tr>
     </thead>
     <tbody>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>OX Security<br><span style="color:var(--muted);font-size:0.8em">Apr 15</span></td>
         <td>10 CVEs, 150M+ downloads, 9/11 registries poisoned. STDIO execution classified as expected behavior, not a vulnerability.</td>
         <td>Auth optional by design, no attestation</td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>BadHost<br><span style="color:var(--muted);font-size:0.8em">May 27</span></td>
         <td>1 character in HTTP Host header → clinical DBs, email inboxes, SSH to industrial devices. CVSS 7.0.</td>
         <td>No hardware boundary for auth bypass</td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>Mexico Gov<br><span style="color:var(--muted);font-size:0.8em">Dec-Feb</span></td>
         <td>195M citizen records. Claude Code + GPT-4.1. 9 agencies in 90 days.</td>
         <td>AI agents with full access and no provenance</td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>O'Reilly Radar<br><span style="color:var(--muted);font-size:0.8em">May 26</span></td>
         <td>"Token delegation sits in a layer today's stack doesn't really have."</td>
         <td>Architecture gap acknowledged by O'Reilly</td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>Mitiga / Claude Code<br><span style="color:var(--muted);font-size:0.8em">Jun 2026</span></td>
         <td>Malicious npm package rewrites Claude Code's MCP config, silently proxying OAuth tokens.</td>
         <td>Stolen agent credentials look legitimate</td>
       </tr>
-      <tr class="fragment fade-up"><td>Blue41 / Bunq<br><span style="color:var(--muted);font-size:0.8em">Jun 10</span></td><td>€0.01 transfer memo hijacks banking AI agent</td><td>Legitimate context becomes attack vector</td></tr>
+      <tr class=""><td>Blue41 / Bunq<br><span style="color:var(--muted);font-size:0.8em">Jun 10</span></td><td>€0.01 transfer memo hijacks banking AI agent</td><td>Legitimate context becomes attack vector</td></tr>
     </tbody>
   </table>
 
-  <div class="evidence-blockquote fragment fade-up">
+  <div class="evidence-blockquote ">
     "When Agent A receives a token, delegates to Agent B, and Agent B spawns Agent C, each hop either reuses the original token (overprivileged) or has no token at all (untracked)."
     <cite>O'Reilly Radar, May 26, 2026</cite>
   </div>
@@ -1855,7 +1855,7 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>Everyone building agent security. <span class="red">Nobody on hardware.</span></h2>
 
   <div class="two-col">
-    <div class="col-card fragment fade-up">
+    <div class="col-card ">
       <h4 class="col-green">✅ Frameworks converging</h4>
       <ul>
         <li><strong>OWASP Agentic Top 10</strong>: Goal Hijack, Tool Misuse, Identity Abuse. Published May 2026.</li>
@@ -1864,7 +1864,7 @@ footer, header, hgroup, main, menu, nav, section {
         <li><strong>NIST AI RMF</strong>: Agentic AI agent standards initiative. Feb 2026.</li>
       </ul>
     </div>
-    <div class="col-card fragment fade-up">
+    <div class="col-card ">
       <h4 class="col-amber">⚠️ All stop at software trust</h4>
       <ul>
         <li><strong>Okta for AI Agents</strong>: OAuth/OIDC identity. GA April 30. No hardware attestation.</li>
@@ -1875,7 +1875,7 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <div class="big-claim fragment fade-up">
+  <div class="big-claim ">
     🎯 "Everyone is building agent security. Nobody is building it on hardware."
   </div>
 
@@ -1907,31 +1907,31 @@ footer, header, hgroup, main, menu, nav, section {
       </tr>
     </thead>
     <tbody>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>OAuth 2.0 / OIDC</td>
         <td>Who authorized the action</td>
         <td>Which binary is executing it</td>
         <td><span class="badge badge-amber">Necessary</span></td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>IAM Roles / RBAC</td>
         <td>What permissions are granted</td>
         <td>Whether runtime is uncompromised</td>
         <td><span class="badge badge-amber">Necessary</span></td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>API Guardrails</td>
         <td>Input/output policy compliance</td>
         <td>Whether the model itself was tampered</td>
         <td><span class="badge badge-amber">Necessary</span></td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td>Audit Logs</td>
         <td>What actions were recorded</td>
         <td>Whether logs were tampered with</td>
         <td><span class="badge badge-amber">Necessary</span></td>
       </tr>
-      <tr class="fragment fade-up">
+      <tr class="">
         <td><strong>Hardware Attestation (TEE)</strong></td>
         <td><strong>Code + runtime integrity, cryptographically</strong></td>
         <td>Application-layer policy (still needs the above)</td>
@@ -1940,7 +1940,7 @@ footer, header, hgroup, main, menu, nav, section {
     </tbody>
   </table>
 
-  <div class="blockquote-fancy fragment fade-up" style="margin-top:16px; font-size:0.78em;">
+  <div class="blockquote-fancy " style="margin-top:16px; font-size:0.78em;">
     "Application-layer agent identity delivers critical capabilities, but cannot independently provide cryptographic assurance that an agent is running expected code in an untampered environment. <strong>The goal is composition, not competition.</strong>"
   </div>
 
@@ -1965,29 +1965,29 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>Four gaps <span class="accent">nobody has closed</span></h2>
 
   <div class="gaps-grid">
-    <div class="gap-card fragment fade-up">
+    <div class="gap-card ">
       <div class="gap-number">1</div>
       <h4>Attested Agent Identity</h4>
       <p>No standard for TEE-backed proof of what agent code is running. SPIFFE works. TEE-binding doesn't exist at scale.</p>
     </div>
-    <div class="gap-card fragment fade-up">
+    <div class="gap-card ">
       <div class="gap-number">2</div>
       <h4>MCP + Attestation Integration</h4>
       <p>Protocol-level verification of tool server identity. The MCP spec makes server identity optional and software-only. Nothing in the protocol binds tool invocation to hardware attestation.</p>
     </div>
-    <div class="gap-card fragment fade-up">
+    <div class="gap-card ">
       <div class="gap-number">3</div>
       <h4>Attested Delegation Chain</h4>
       <p>RFC 8693 token exchange at each hop, but with TEE measurements. When Agent A → B → C, each hop needs hardware proof.</p>
     </div>
-    <div class="gap-card fragment fade-up">
+    <div class="gap-card ">
       <div class="gap-number">4</div>
       <h4>Cross-Cloud Agent Trust</h4>
       <p>Federated attestation for multi-cloud agent workflows. No standard. Azure TDX ↔ GCP TDX ↔ NVIDIA CC = no chain of trust today.</p>
     </div>
   </div>
 
-  <p class="fragment fade-up" style="margin-top:16px; font-size:0.8em; color:var(--muted); text-align:center;">
+  <p class="" style="margin-top:16px; font-size:0.8em; color:var(--muted); text-align:center;">
     MCP spec ships final release July 28, <span class="accent">five weeks after this talk</span>. Still no attestation layer. The window to influence it is <strong style="color:var(--amber)">right now.</strong>
   </p>
 
@@ -2011,7 +2011,7 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>Three teams. Same week. <span class="green">Same architecture.</span></h2>
 
   <div class="three-panels">
-    <div class="panel-card fragment fade-up">
+    <div class="panel-card ">
       <div class="org">🚗 Uber Engineering</div>
       <div class="date">May 21, 2026</div>
       <ul>
@@ -2022,7 +2022,7 @@ footer, header, hgroup, main, menu, nav, section {
       </ul>
       <div class="missing">Missing: SPIRE inside a TEE. Identity tokens carry delegation provenance, but not hardware proof of issuer integrity.</div>
     </div>
-    <div class="panel-card fragment fade-up">
+    <div class="panel-card ">
       <div class="org">📄 attestable-mcp-server</div>
       <div class="date">May 22, 2026 · arXiv:2605.24248</div>
       <ul>
@@ -2033,7 +2033,7 @@ footer, header, hgroup, main, menu, nav, section {
       </ul>
       <div class="missing">Status: Open source. Enforcement mode exists. Waiting for this room to adopt it.</div>
     </div>
-    <div class="panel-card fragment fade-up">
+    <div class="panel-card ">
       <div class="org">🔑 1Password · Keycard</div>
       <div class="date">May 21, 2026</div>
       <ul>
@@ -2046,7 +2046,7 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <p class="fragment fade-up" style="font-size:0.82em;color:var(--accent);font-weight:700;text-align:center;margin-top:16px;">
+  <p class="" style="font-size:0.82em;color:var(--accent);font-weight:700;text-align:center;margin-top:16px;">
     Three independent teams. Different companies. Different countries. Same week. Same answer: <span style="color:var(--green)">attestation.</span>
   </p>
 
@@ -2070,7 +2070,7 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>The <span class="accent">6-layer attested agent</span> identity stack</h2>
 
   <div class="arch-stack">
-    <div class="arch-layer fragment fade-up">
+    <div class="arch-layer ">
       <div class="arch-layer-num">6</div>
       <div class="arch-layer-content">
         <div class="arch-layer-title">Verifiable Audit Trail</div>
@@ -2078,7 +2078,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
       <div class="arch-layer-status amber">🔨 Building</div>
     </div>
-    <div class="arch-layer fragment fade-up">
+    <div class="arch-layer ">
       <div class="arch-layer-num">5</div>
       <div class="arch-layer-content">
         <div class="arch-layer-title">Policy Enforcement / Authorization</div>
@@ -2086,7 +2086,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
       <div class="arch-layer-status amber">🔨 Emerging</div>
     </div>
-    <div class="arch-layer fragment fade-up">
+    <div class="arch-layer ">
       <div class="arch-layer-num">4</div>
       <div class="arch-layer-content">
         <div class="arch-layer-title">Attested Tool Invocation</div>
@@ -2094,7 +2094,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
       <div class="arch-layer-status amber">🔨 arXiv ready</div>
     </div>
-    <div class="arch-layer fragment fade-up">
+    <div class="arch-layer ">
       <div class="arch-layer-num">3</div>
       <div class="arch-layer-content">
         <div class="arch-layer-title">Agent Identity Issuance</div>
@@ -2102,7 +2102,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
       <div class="arch-layer-status amber">🔨 Partial</div>
     </div>
-    <div class="arch-layer fragment fade-up">
+    <div class="arch-layer ">
       <div class="arch-layer-num">2</div>
       <div class="arch-layer-content">
         <div class="arch-layer-title">Confidential Execution</div>
@@ -2110,7 +2110,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
       <div class="arch-layer-status green">✅ Production</div>
     </div>
-    <div class="arch-layer fragment fade-up">
+    <div class="arch-layer ">
       <div class="arch-layer-num">1</div>
       <div class="arch-layer-content">
         <div class="arch-layer-title">Hardware Root of Trust</div>
@@ -2120,11 +2120,11 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <div class="arch-caption fragment fade-up">
+  <div class="arch-caption ">
     Confidential GPUs protect the <span class="green">model</span>. Layers 3-6 protect the <span class="amber">agent</span>.
   </div>
 
-  <div class="fragment fade-up" style="width:100%;text-align:center;font-size:0.6em;color:var(--muted);margin-top:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;">
+  <div class="" style="width:100%;text-align:center;font-size:0.6em;color:var(--muted);margin-top:8px;font-family:'JetBrains Mono',monospace;letter-spacing:0.5px;">
     Next slide: every layer applied to a live payment flow →
   </div>
 
@@ -2232,7 +2232,7 @@ footer, header, hgroup, main, menu, nav, section {
     <text x="310" y="281" fill="#8b9bb4" font-family="Outfit,sans-serif" font-size="9">attested MCP channel</text>
   </svg>
 
-  <p class="diagram-caption fragment fade-up">This architecture contains the Blue41/Bunq attack. The memo still reaches the context window, but Layer 5 deterministic policy (enforced inside the TEE, with attestation proving the policy engine is unmodified) caps what a tricked agent can do. Prompt injection stays possible; silent privilege escalation does not.</p>
+  <p class="diagram-caption ">This architecture contains the Blue41/Bunq attack. The memo still reaches the context window, but Layer 5 deterministic policy (enforced inside the TEE, with attestation proving the policy engine is unmodified) caps what a tricked agent can do. Prompt injection stays possible; silent privilege escalation does not.</p>
 
   <aside class="notes">
     <ul>
@@ -2256,7 +2256,7 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>Hardware is the <span class="amber">foundation</span>, not the silver bullet</h2>
 
   <div class="hw-compare">
-    <div class="hw-box hw-bad fragment fade-up">
+    <div class="hw-box hw-bad ">
       <h4>⚠️ When hardware attestation fails</h4>
       <ul>
         <li>AMD SEV-SNP "CacheWarp" (CVE-2023-20592): cache attack hijacks a confidential VM. Patch: microcode update, re-attestation.</li>
@@ -2265,7 +2265,7 @@ footer, header, hgroup, main, menu, nav, section {
         <li>Performance overhead, measurable on crypto-heavy workloads.</li>
       </ul>
     </div>
-    <div class="hw-box hw-good fragment fade-up">
+    <div class="hw-box hw-good ">
       <h4>✅ Why hardware trust is still better</h4>
       <ul>
         <li>When a TEE breaks, the trust model is <strong>explicit</strong>: a measurement, a CVE, a patch, and you re-attest. Painful, but bounded.</li>
@@ -2275,7 +2275,7 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <div class="asymmetry-callout fragment fade-up">
+  <div class="asymmetry-callout ">
     💡 "The asymmetry isn't that hardware never breaks. It's that hardware trust is <em>explicit</em>: when it breaks, there's a measurement, a CVE, and a patch. Software trust is <em>implicit</em>: when it breaks, the first signal is the breach."
   </div>
 
@@ -2298,27 +2298,27 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>The market is moving <span class="amber">with or without us</span></h2>
 
   <ul class="urgency-list">
-    <li class="fragment fade-up">
+    <li class="">
       <span class="urgency-date">Aug 2, 2026</span>
       <span>EU AI Act high-risk requirements become enforceable, <strong>7 weeks from today.</strong> Technology-neutral, but requires verifiable technical assurances. Hardware attestation is the strongest foundation available. <span class="hot">Deadline</span></span>
     </li>
-    <li class="fragment fade-up">
+    <li class="">
       <span class="urgency-date">Jul 28, 2026</span>
       <span>MCP spec ships final release, <strong>5 weeks from today.</strong> Still no attestation layer in any SEP. The window to influence it is closing. <span class="hot">Closing window</span></span>
     </li>
-    <li class="fragment fade-up">
+    <li class="">
       <span class="urgency-date">May 25, 2026</span>
       <span>Sweden IMY ruled TEEs satisfy GDPR Article 32: <em>"shifting the basis of trust from promises to verifiable proof."</em> First regulatory recognition of TEE as compliance anchor. <span class="hot">Legal precedent</span></span>
     </li>
-    <li class="fragment fade-up">
+    <li class="">
       <span class="urgency-date">WorkOS / Uber<br>1Password</span>
       <span><strong>WorkOS shipped auth.md.</strong> Uber shipped agent identity (SPIFFE + RFC 8693). 1Password shipped attestation delegation. The market is converging on attested identity, waiting for the <strong>hardware layer.</strong></span>
     </li>
-    <li class="hot-bullet fragment fade-up">
+    <li class="hot-bullet ">
       <span class="urgency-date">Apr-Jun 2026</span>
       <span><strong>Hardware attestation entered the governance layer.</strong> I proposed TEE-bound agent identity with SEV-SNP attestation in Microsoft's open-source Agent Governance Toolkit (ADR 0010). Its Advanced conformance tier already rejects software-only keys.</span>
     </li>
-    <li class="hot-bullet fragment fade-up">
+    <li class="hot-bullet ">
       🍎 Apple shipped PCC on Google Cloud (Intel TDX + NVIDIA CC + Titan), details expected at THIS summit
     </li>
   </ul>
@@ -2343,19 +2343,19 @@ footer, header, hgroup, main, menu, nav, section {
   <h2>What <span class="accent">this room</span> should build</h2>
 
   <div class="build-cards">
-    <div class="build-card fragment fade-up">
+    <div class="build-card ">
       <div class="card-num">1</div>
       <h4>If you build agents: demand attested execution</h4>
       <p>Stop shipping credentials in environment variables. Stop using long-lived API keys for autonomous agents. Uber, 1Password, and a team of grad students with an arXiv paper figured this out in May. Your agents should be at least as secure as an Uber microservice.</p>
       <span class="agt-tag">Agent builders</span>
     </div>
-    <div class="build-card fragment fade-up">
+    <div class="build-card ">
       <div class="card-num">2</div>
       <h4>If you build infrastructure: connect TEE attestation to agent identity</h4>
       <p>SPIFFE works. RFC 8693 works. attestable-mcp-server works. The primitives exist. The integration doesn't. Run SPIRE inside a TDX or SEV-SNP boundary. Issue X.509 SVIDs with TEE measurements attached. That's the missing layer. Then ship an attested mode for MCP: deny-by-default unless the tool server presents a valid attestation, and push that requirement into the next MCP spec proposal.</p>
       <span class="agt-tag">Infra builders</span>
     </div>
-    <div class="build-card fragment fade-up">
+    <div class="build-card ">
       <div class="card-num">3</div>
       <h4>If you set standards: hardware attestation belongs in every framework</h4>
       <p>OWASP Agentic Top 10. Microsoft AGT. NIST. ISO. CSA. CCC. Every framework is defining agent security vocabulary, and hardware attestation is almost never a hard requirement. AGT's Advanced conformance tier is the early exception: it rejects software-only keys. Make that the template, not the outlier. This community needs to show up in these frameworks. Not as nice-to-have. As the foundation.</p>
@@ -2363,7 +2363,7 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <div class="sweden-box fragment fade-up">
+  <div class="sweden-box ">
     <strong>Confidential computing for agent governance:</strong> I proposed TEE-bound agent identity with SEV-SNP attestation in Microsoft's open-source Agent Governance Toolkit: hardware attestation, TEE-backed identity, and sealed credential storage as shared primitives. It's provider-neutral by design, SEV-SNP first, then TDX, Nitro, and Confidential Space. The toolkit's Advanced conformance tier already rejects software-only signing keys. This has to be a community effort: a shared primitive, not a proprietary add-on. <strong style="color:#86efac">github.com/microsoft/agent-governance-toolkit · ADR 0010</strong>
   </div>
 
@@ -2399,14 +2399,14 @@ footer, header, hgroup, main, menu, nav, section {
     </div>
   </div>
 
-  <p class="close-coda fragment fade-up">
+  <p class="close-coda ">
     Both followed the same arc: <strong>innovation first, trust later, hardware eventually.</strong><br><br>
     The agentic economy is the third wave, and it's moving faster than either of them.<br><br>
     The difference this time? <strong>We're not late.</strong> The standards are being written right now. The builders are publishing right now. The regulators are ruling right now.<br><br>
     The only question is whether the trust layer ships before or after the breach that makes three quarters of a million look like a rounding error.
   </p>
 
-  <p class="fragment fade-up" style="font-size:1em;font-weight:700;color:var(--accent);margin-top:20px;">
+  <p class="" style="font-size:1em;font-weight:700;color:var(--accent);margin-top:20px;">
     This room has built every confidential computing primitive that exists.<br>
     Let's make sure the agentic economy is built on top of them, <span style="color:var(--amber)">not beside them.</span>
   </p>
